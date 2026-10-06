@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "revision": "c0f6c2b66c6bb7118b009aa742d012b8b3e2b61d",
+  "revision": "625bc8aba83e96588f2d910f7e07c9646a5dda11",
   "engineDigest": "37328a6ce56ff0962c1f709c1966f8727de312ec070b89af65e73a8b0ffcd718",
-  "inputDigest": "91d80c669df9e038bd0cbeefd5469dd339024e554fc291e466921aa742092692",
+  "inputDigest": "3b33e011327ad675fe999df918fd68beca5976dbe8f0156199451850b8204660",
   "outputs": {
     "ngql-basics": {
       "schemaVersion": 2,

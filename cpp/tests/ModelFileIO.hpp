@@ -1,5 +1,6 @@
 #pragma once
 #include "graphdb/FileIO.hpp"
+#include <algorithm>
 #include <cerrno>
 #include <map>
 namespace nova_test {

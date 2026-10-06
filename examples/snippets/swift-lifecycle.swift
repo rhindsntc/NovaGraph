@@ -1,4 +1,4 @@
-// Canonical runnable source: examples/Lifecycle/Sources/Lifecycle/main.swift
+// Canonical runnable source: examples/Lifecycle/Sources/Lifecycle/LifecycleExample.swift
 // Canonical SwiftUI integration: examples/Lifecycle/Sources/Lifecycle/DatabaseLifecycleView.swift
 try await db.checkpoint()
 let trim = try await db.handleMemoryWarning()

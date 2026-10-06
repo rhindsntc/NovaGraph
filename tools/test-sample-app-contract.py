@@ -1,8 +1,26 @@
 #!/usr/bin/env python3
+import sys
+import tempfile
 import unittest
-from sample_app import validate_results
+from pathlib import Path
+from sample_app import run, validate_results
 
 class SampleAcceptanceContracts(unittest.TestCase):
+    def test_command_failure_reports_exit_code_and_log_error(self):
+        with tempfile.TemporaryDirectory() as directory:
+            log = Path(directory) / 'xcodebuild.log'
+            command = [sys.executable, '-c',
+                'import sys; print("error: save action did not finish"); '
+                '[print(f"build line {i}") for i in range(100)]; sys.exit(7)']
+            with self.assertRaises(ValueError) as failure:
+                run(command, log)
+            message = str(failure.exception)
+            self.assertIn('exit code 7', message)
+            self.assertIn('error: save action did not finish', message)
+            self.assertIn(str(log), message)
+            self.assertNotIn('build line 0\n', message)
+            self.assertIn('build line 0\n', log.read_text())
+
     def report(self):
         return {'result':'Passed','totalTestCount':1,'passedTests':1,'failedTests':0,'skippedTests':0,'expectedFailures':0}, {'testNodes':[{'nodeType':'Test Case','nodeIdentifier':'SampleUITests/testReopen()','result':'Passed'}]}
     def test_named_ui_case_must_match_inventory(self):

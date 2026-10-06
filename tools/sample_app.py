@@ -29,8 +29,13 @@ def validate_results(summary, tree, expected):
 def run(command, log, cwd=ROOT, timeout=900):
     with log.open('w') as stream:
         result=subprocess.run([str(arg) for arg in command],cwd=cwd,stdout=stream,stderr=subprocess.STDOUT,timeout=timeout)
-    if result.returncode:raise ValueError(f'command failed; see {log}')
-    return log.read_text()
+    output = log.read_text()
+    if result.returncode:
+        lines = output.splitlines()
+        errors = [line for line in lines if 'error:' in line.lower()]
+        details = '\n'.join(dict.fromkeys(errors[-10:] + lines[-20:]))[-12_000:]
+        raise ValueError(f'command failed with exit code {result.returncode}; see {log}\n{details}')
+    return output
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
