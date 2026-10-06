@@ -3,7 +3,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
-from sample_app import run, validate_results
+from sample_app import run, select_ios_runtime, validate_results
 
 class SampleAcceptanceContracts(unittest.TestCase):
     def test_command_failure_reports_exit_code_and_log_error(self):
@@ -20,6 +20,24 @@ class SampleAcceptanceContracts(unittest.TestCase):
             self.assertIn(str(log), message)
             self.assertNotIn('build line 0\n', message)
             self.assertIn('build line 0\n', log.read_text())
+
+    def test_pinned_runtime_is_selected_instead_of_latest(self):
+        runtimes = [
+            {'name': 'iOS 18.5', 'version': '18.5', 'isAvailable': True},
+            {'name': 'iOS 26.5', 'version': '26.5', 'isAvailable': True},
+        ]
+        self.assertEqual(select_ios_runtime(runtimes, '18.5')['version'], '18.5')
+        self.assertEqual(select_ios_runtime(runtimes)['version'], '26.5')
+
+    def test_missing_or_unavailable_pinned_runtime_cannot_fall_back(self):
+        runtimes = [
+            {'name': 'iOS 18.5', 'version': '18.5', 'isAvailable': False},
+            {'name': 'iOS 26.5', 'version': '26.5', 'isAvailable': True},
+            {'name': 'watchOS 18.5', 'version': '18.5', 'isAvailable': True},
+        ]
+        for version in ['18.5', '18.6']:
+            with self.subTest(version=version), self.assertRaisesRegex(ValueError, 'no installed iOS simulator runtime'):
+                select_ios_runtime(runtimes, version)
 
     def report(self):
         return {'result':'Passed','totalTestCount':1,'passedTests':1,'failedTests':0,'skippedTests':0,'expectedFailures':0}, {'testNodes':[{'nodeType':'Test Case','nodeIdentifier':'SampleUITests/testReopen()','result':'Passed'}]}

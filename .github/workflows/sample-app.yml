@@ -7,14 +7,16 @@ permissions:
   contents: read
 jobs:
   sample:
-    runs-on: macos-26
+    # Xcode 26 has reported VM performance regressions (runner-images#13540).
+    # Keep functional UI acceptance on this pinned pair; artifact CI uses Xcode 26.6.
+    runs-on: macos-15
     timeout-minutes: 30
     env:
-      DEVELOPER_DIR: /Applications/Xcode_26.6.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_16.4.app/Contents/Developer
     steps:
       - uses: actions/checkout@v4
       - name: Verify selected Xcode
-        run: test "$(xcodebuild -version | tail -n 1)" = 'Build version 17F113'
+        run: test "$(xcodebuild -version | tail -n 1)" = 'Build version 16F6'
       - name: Build pinned XcodeGen
         shell: bash
         run: |
@@ -24,7 +26,7 @@ jobs:
       - name: Verify sample model and acceptance contracts
         run: make sample-app-test
       - name: Build and launch macOS and iOS simulator apps
-        run: python3 tools/sample_app.py --output build/sample-app-acceptance
+        run: python3 tools/sample_app.py --output build/sample-app-acceptance --ios-runtime 18.5
       - uses: actions/upload-artifact@v4
         if: always()
         with:
