@@ -38,7 +38,7 @@ Represent connected data as nodes and typed, directed edges. Work through `Graph
 Unpack a source archive into a directory named `Nova`, or clone the repository. The Git command below is a template: replace `REPOSITORY_URL` with the actual repository URL; a public URL/tag has not been selected yet.
 
 ```sh
-git clone REPOSITORY_URL Nova
+git clone https://github.com/rhindsntc/NovaGraph.git Nova
 cd Nova
 swift build
 swift test
@@ -56,13 +56,16 @@ let package = Package(
     name: "Example",
     platforms: [.macOS(.v13)],
     dependencies: [
-        .package(name: "NovaGraph", path: "../Nova")
+        .package(
+            url: "https://github.com/rhindsntc/NovaGraph.git",
+            from: "1.0.0"
+        )
     ],
     targets: [
         .executableTarget(
             name: "Example",
             dependencies: [
-                .product(name: "GraphDBKit", package: "NovaGraph")
+                .product(name: "GraphDBKit", package: "novagraph")
             ]
         )
     ]
