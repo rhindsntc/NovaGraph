@@ -16,8 +16,6 @@ Nodes, relationships, and queries—inside your application.
 
 </div>
 
-> **Experimental.** NovaGraph is not production-ready. Use disposable data for evaluation. Physical-device, oldest-runtime, sustained quality, and production-release qualification remain incomplete. See the [public TODOs](TODO.md) and [compatibility guide](docs-web/content/compatibility.md).
-
 ## Why NovaGraph?
 
 Represent connected data as nodes and typed, directed edges. Work through `GraphDBKit`, a Swift API backed by a C++20 storage engine and C ABI. The source package builds the engine with your application; no database server or manual native linker flags are needed.
@@ -238,4 +236,4 @@ The [public TODO roadmap](TODO.md) tracks publication setup and unfinished quali
 
 ## License
 
-NovaGraph is licensed under [Apache-2.0](LICENSE). Preserve the [third-party notices](licenses/README.md) when redistributing the source or artifacts. The [release checklist](RELEASING.md) separates experimental source publication from production qualification.
+NovaGraph is licensed under [Apache-2.0](LICENSE). Preserve the [third-party notices](licenses/README.md) when redistributing the source or artifacts. The [release checklist](RELEASING.md) separates source publication from production qualification.
