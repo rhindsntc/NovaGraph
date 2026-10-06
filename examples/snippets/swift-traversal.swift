@@ -1,0 +1,5 @@
+let friends = try db.from("ada").out("FOLLOWS").depth(2).limit(25).collect()
+let followers = try db.from("grace").in("FOLLOWS").depth(1).collect()
+let paths = try db.from("ada").out("FOLLOWS").depth(2).paths()
+precondition(friends.map(\.id) == ["grace"] && followers.map(\.id) == ["ada"])
+precondition(paths.count == 1 && paths[0].nodes.map(\.id) == ["ada", "grace"])

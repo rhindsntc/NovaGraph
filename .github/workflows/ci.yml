@@ -1,0 +1,152 @@
+name: ci
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+    inputs:
+      strict_release:
+        description: Run production acceptance (fails while known regressions remain)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  cpp:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        mode: [debug, release]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile canonical C-only export
+        run: make c-header-check
+      - name: Build and test C++ core (development baseline)
+        shell: bash
+        run: |
+          set -o pipefail
+          make cpp-test-${{ matrix.mode }} | tee cpp-${{ matrix.mode }}.log
+      - name: Verify test runner failure contracts in both build modes
+        if: matrix.mode == 'release'
+        run: make test-runner-contract
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cpp-${{ matrix.mode }}-results
+          path: cpp-${{ matrix.mode }}.log
+
+  swift:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify clean source-package URL consumers
+        run: |
+          python3 tools/check-test-inventory.py --package
+          python3 tools/test-source-package.py --revision HEAD --output build/source-package-evidence.json
+      - name: Execute canonical documentation examples and compiler mutations
+        run: make docs-examples
+      - name: Build and test Swift wrapper (development baseline)
+        shell: bash
+        run: |
+          set -o pipefail
+          make swift-test | tee swift-tests.log
+      - name: Run public-package CLI demo
+        run: make demo
+      - name: Run canonical typed API example
+        run: make typed-api-example
+      - name: Run canonical lifecycle example
+        run: make lifecycle-example
+      - name: Install developer website dependencies
+        run: npm --prefix docs-web ci
+      - name: Verify real local runner and browser integration
+        run: make dev-query-test
+      - name: Validate performance budgets and native smoke workloads
+        run: make performance-smoke
+      - name: Validate public Swift versus C read measurement
+        run: |
+          swift build --package-path benchmarks -c release --product NovaSwiftOverhead
+          python3 tools/test-swift-overhead.py benchmarks/.build/release/NovaSwiftOverhead
+      - name: Run benchmark lifecycle smoke check
+        run: make benchmarks-test
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: swift-results
+          path: |
+            swift-tests.log
+            build/performance-evidence/
+            build/docs-examples-evidence.json
+            build/source-package-evidence.json
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: docs-web/package-lock.json
+      - run: npm ci
+        working-directory: docs-web
+      - run: make docs-examples-native
+      - run: make docs-check
+      - name: Verify local release preflight contracts
+        run: |
+          set -euo pipefail
+          mkdir -p build/release-preflight-contracts
+          make release-preflight-test 2>&1 | tee build/release-preflight-contracts/tests.log
+      - name: Verify public source export guards
+        run: make public-export-test
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: docs-native-evidence
+          path: |
+            build/docs-examples-evidence.json
+            build/release-preflight-contracts/tests.log
+
+  # This is an explicit readiness check, not an allow-failure development job.
+  # A future release workflow must require it, including on release tags (T21).
+  strict-release:
+    if: github.event_name == 'workflow_dispatch' && inputs.strict_release
+    runs-on: macos-15
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [cpp, swift]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject known failures and skips for production acceptance
+        run: make ${{ matrix.suite }}-test-strict
+
+  recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build recovery worker
+        run: make cpp-build
+      - name: Maintenance CLI workflow
+        run: python3 tools/test-maintenance-cli.py --cli build/cpp/nova-maintenance
+      - name: Process-crash and modeled-power-loss campaigns
+        shell: bash
+        run: |
+          set -o pipefail
+          traces=1000
+          if [ "${{ github.event_name }}" = "schedule" ]; then traces=10000; fi
+          python3 tools/test-crash-recovery.py --worker build/cpp/nova_crash_worker --traces "$traces" --output build/recovery-evidence.json 2>&1 | tee build/recovery-campaign.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: recovery-evidence
+          path: |
+            build/recovery-evidence.json
+            build/recovery-campaign.log
+            cpp/tests/faults/seeds.json

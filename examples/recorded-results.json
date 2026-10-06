@@ -1,0 +1,1144 @@
+{
+  "schemaVersion": 1,
+  "revision": "c0f6c2b66c6bb7118b009aa742d012b8b3e2b61d",
+  "engineDigest": "37328a6ce56ff0962c1f709c1966f8727de312ec070b89af65e73a8b0ffcd718",
+  "inputDigest": "91d80c669df9e038bd0cbeefd5469dd339024e554fc291e466921aa742092692",
+  "outputs": {
+    "ngql-basics": {
+      "schemaVersion": 2,
+      "ok": true,
+      "data": {
+        "results": [
+          {
+            "ok": true,
+            "mutation": "create_index",
+            "label": "Person",
+            "property": "email"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_edge"
+          },
+          {
+            "kind": "node",
+            "id": "ada",
+            "label": "Person",
+            "properties": {
+              "email": {
+                "type": "string",
+                "value": "ada@example.com"
+              },
+              "name": {
+                "type": "string",
+                "value": "Ada"
+              }
+            },
+            "last_read_ms": "<timestamp-ms>",
+            "last_modified_ms": "<timestamp-ms>",
+            "version": 1
+          },
+          [
+            {
+              "kind": "node",
+              "id": "ada",
+              "label": "Person",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "value": "ada@example.com"
+                },
+                "name": {
+                  "type": "string",
+                  "value": "Ada"
+                }
+              },
+              "last_read_ms": "<timestamp-ms>",
+              "last_modified_ms": "<timestamp-ms>",
+              "version": 1
+            }
+          ],
+          [
+            {
+              "kind": "node",
+              "id": "grace",
+              "label": "Person",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "value": "Grace"
+                }
+              },
+              "last_read_ms": "<timestamp-ms>",
+              "last_modified_ms": "<timestamp-ms>",
+              "version": 1
+            }
+          ]
+        ]
+      },
+      "receipt": {
+        "transactionId": "<transaction-id>",
+        "committedLSN": 6
+      }
+    },
+    "ngql-advanced": {
+      "schemaVersion": 2,
+      "ok": true,
+      "data": {
+        "results": [
+          [
+            {
+              "id": "ada",
+              "name": {
+                "type": "string",
+                "value": "Ada"
+              }
+            },
+            {
+              "id": "grace",
+              "name": {
+                "type": "string",
+                "value": "Grace"
+              }
+            }
+          ],
+          [
+            {
+              "kind": "node",
+              "id": "ada",
+              "label": "Person",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "value": "ada@example.com"
+                },
+                "name": {
+                  "type": "string",
+                  "value": "Ada"
+                }
+              },
+              "last_read_ms": "<timestamp-ms>",
+              "last_modified_ms": "<timestamp-ms>",
+              "version": 1
+            }
+          ],
+          {
+            "explain": true,
+            "operation": "FindNodes",
+            "label": "Person",
+            "access_path": "PropertyIndexScan",
+            "index_used": "Person(email)",
+            "filter_key": "email",
+            "filter_operator": "=",
+            "filter_value": "ada@example.com",
+            "limit": 100
+          }
+        ]
+      }
+    },
+    "ngql-traversal-paths": {
+      "schemaVersion": 2,
+      "ok": true,
+      "data": {
+        "results": [
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_edge"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_edge"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_edge"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_edge"
+          },
+          {
+            "nodes": [
+              {
+                "kind": "node",
+                "id": "bob",
+                "label": "Person",
+                "properties": {},
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "cyra",
+                "label": "Person",
+                "properties": {},
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "dina",
+                "label": "Person",
+                "properties": {},
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ],
+            "paths": [
+              {
+                "nodes": [
+                  {
+                    "kind": "node",
+                    "id": "ada",
+                    "label": "Person",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "node",
+                    "id": "bob",
+                    "label": "Person",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ],
+                "edges": [
+                  {
+                    "kind": "edge",
+                    "id": "3:ada5:KNOWS3:bob",
+                    "type": "KNOWS",
+                    "from": "ada",
+                    "to": "bob",
+                    "properties": {
+                      "since": {
+                        "type": "int",
+                        "value": 2020
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ]
+              },
+              {
+                "nodes": [
+                  {
+                    "kind": "node",
+                    "id": "ada",
+                    "label": "Person",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "node",
+                    "id": "cyra",
+                    "label": "Person",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ],
+                "edges": [
+                  {
+                    "kind": "edge",
+                    "id": "3:ada5:KNOWS4:cyra",
+                    "type": "KNOWS",
+                    "from": "ada",
+                    "to": "cyra",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ]
+              },
+              {
+                "nodes": [
+                  {
+                    "kind": "node",
+                    "id": "ada",
+                    "label": "Person",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "node",
+                    "id": "bob",
+                    "label": "Person",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "node",
+                    "id": "dina",
+                    "label": "Person",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ],
+                "edges": [
+                  {
+                    "kind": "edge",
+                    "id": "3:ada5:KNOWS3:bob",
+                    "type": "KNOWS",
+                    "from": "ada",
+                    "to": "bob",
+                    "properties": {
+                      "since": {
+                        "type": "int",
+                        "value": 2020
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "edge",
+                    "id": "3:bob5:KNOWS4:dina",
+                    "type": "KNOWS",
+                    "from": "bob",
+                    "to": "dina",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "receipt": {
+        "transactionId": "<transaction-id>",
+        "committedLSN": 10
+      }
+    },
+    "playground-social": {
+      "schemaVersion": 2,
+      "ok": true,
+      "data": {
+        "results": [
+          {
+            "ok": true,
+            "mutation": "create_index",
+            "label": "Person",
+            "property": "email"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_edge"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_edge"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_edge"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_edge"
+          },
+          {
+            "nodes": [
+              {
+                "kind": "node",
+                "id": "user:grace",
+                "label": "Person",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "value": "grace@nova.io"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "Grace Hopper"
+                  },
+                  "role": {
+                    "type": "string",
+                    "value": "Compiler Lead"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "user:margaret",
+                "label": "Person",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "value": "margaret@nova.io"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "Margaret Hamilton"
+                  },
+                  "role": {
+                    "type": "string",
+                    "value": "Apollo Lead"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ],
+            "paths": [
+              {
+                "nodes": [
+                  {
+                    "kind": "node",
+                    "id": "user:ada",
+                    "label": "Person",
+                    "properties": {
+                      "email": {
+                        "type": "string",
+                        "value": "ada@nova.io"
+                      },
+                      "name": {
+                        "type": "string",
+                        "value": "Ada Lovelace"
+                      },
+                      "role": {
+                        "type": "string",
+                        "value": "Architect"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "node",
+                    "id": "user:grace",
+                    "label": "Person",
+                    "properties": {
+                      "email": {
+                        "type": "string",
+                        "value": "grace@nova.io"
+                      },
+                      "name": {
+                        "type": "string",
+                        "value": "Grace Hopper"
+                      },
+                      "role": {
+                        "type": "string",
+                        "value": "Compiler Lead"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ],
+                "edges": [
+                  {
+                    "kind": "edge",
+                    "id": "8:user:ada7:FOLLOWS10:user:grace",
+                    "type": "FOLLOWS",
+                    "from": "user:ada",
+                    "to": "user:grace",
+                    "properties": {
+                      "since": {
+                        "type": "int",
+                        "value": 2024
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ]
+              },
+              {
+                "nodes": [
+                  {
+                    "kind": "node",
+                    "id": "user:ada",
+                    "label": "Person",
+                    "properties": {
+                      "email": {
+                        "type": "string",
+                        "value": "ada@nova.io"
+                      },
+                      "name": {
+                        "type": "string",
+                        "value": "Ada Lovelace"
+                      },
+                      "role": {
+                        "type": "string",
+                        "value": "Architect"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "node",
+                    "id": "user:grace",
+                    "label": "Person",
+                    "properties": {
+                      "email": {
+                        "type": "string",
+                        "value": "grace@nova.io"
+                      },
+                      "name": {
+                        "type": "string",
+                        "value": "Grace Hopper"
+                      },
+                      "role": {
+                        "type": "string",
+                        "value": "Compiler Lead"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "node",
+                    "id": "user:margaret",
+                    "label": "Person",
+                    "properties": {
+                      "email": {
+                        "type": "string",
+                        "value": "margaret@nova.io"
+                      },
+                      "name": {
+                        "type": "string",
+                        "value": "Margaret Hamilton"
+                      },
+                      "role": {
+                        "type": "string",
+                        "value": "Apollo Lead"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ],
+                "edges": [
+                  {
+                    "kind": "edge",
+                    "id": "8:user:ada7:FOLLOWS10:user:grace",
+                    "type": "FOLLOWS",
+                    "from": "user:ada",
+                    "to": "user:grace",
+                    "properties": {
+                      "since": {
+                        "type": "int",
+                        "value": 2024
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "edge",
+                    "id": "10:user:grace7:FOLLOWS13:user:margaret",
+                    "type": "FOLLOWS",
+                    "from": "user:grace",
+                    "to": "user:margaret",
+                    "properties": {
+                      "since": {
+                        "type": "int",
+                        "value": 2025
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "receipt": {
+        "transactionId": "<transaction-id>",
+        "committedLSN": 11
+      }
+    },
+    "playground-knowledge": {
+      "schemaVersion": 2,
+      "ok": true,
+      "data": {
+        "results": [
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_edge"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_edge"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_edge"
+          },
+          {
+            "nodes": [
+              {
+                "kind": "node",
+                "id": "c:engine",
+                "label": "Core",
+                "properties": {
+                  "lang": {
+                    "type": "string",
+                    "value": "C++20"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "GraphEngine"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "c:wal",
+                "label": "Storage",
+                "properties": {
+                  "checksum": {
+                    "type": "string",
+                    "value": "CRC32"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "WalManager"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "c:catalog",
+                "label": "Storage",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "value": "catalog.db"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "Catalog"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ],
+            "paths": [
+              {
+                "nodes": [
+                  {
+                    "kind": "node",
+                    "id": "c:graphdbkit",
+                    "label": "Swift",
+                    "properties": {
+                      "framework": {
+                        "type": "string",
+                        "value": "Swift 6"
+                      },
+                      "name": {
+                        "type": "string",
+                        "value": "GraphDBKit"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "node",
+                    "id": "c:engine",
+                    "label": "Core",
+                    "properties": {
+                      "lang": {
+                        "type": "string",
+                        "value": "C++20"
+                      },
+                      "name": {
+                        "type": "string",
+                        "value": "GraphEngine"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ],
+                "edges": [
+                  {
+                    "kind": "edge",
+                    "id": "12:c:graphdbkit5:WRAPS8:c:engine",
+                    "type": "WRAPS",
+                    "from": "c:graphdbkit",
+                    "to": "c:engine",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ]
+              },
+              {
+                "nodes": [
+                  {
+                    "kind": "node",
+                    "id": "c:graphdbkit",
+                    "label": "Swift",
+                    "properties": {
+                      "framework": {
+                        "type": "string",
+                        "value": "Swift 6"
+                      },
+                      "name": {
+                        "type": "string",
+                        "value": "GraphDBKit"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "node",
+                    "id": "c:engine",
+                    "label": "Core",
+                    "properties": {
+                      "lang": {
+                        "type": "string",
+                        "value": "C++20"
+                      },
+                      "name": {
+                        "type": "string",
+                        "value": "GraphEngine"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "node",
+                    "id": "c:wal",
+                    "label": "Storage",
+                    "properties": {
+                      "checksum": {
+                        "type": "string",
+                        "value": "CRC32"
+                      },
+                      "name": {
+                        "type": "string",
+                        "value": "WalManager"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ],
+                "edges": [
+                  {
+                    "kind": "edge",
+                    "id": "12:c:graphdbkit5:WRAPS8:c:engine",
+                    "type": "WRAPS",
+                    "from": "c:graphdbkit",
+                    "to": "c:engine",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "edge",
+                    "id": "8:c:engine4:USES5:c:wal",
+                    "type": "USES",
+                    "from": "c:engine",
+                    "to": "c:wal",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ]
+              },
+              {
+                "nodes": [
+                  {
+                    "kind": "node",
+                    "id": "c:graphdbkit",
+                    "label": "Swift",
+                    "properties": {
+                      "framework": {
+                        "type": "string",
+                        "value": "Swift 6"
+                      },
+                      "name": {
+                        "type": "string",
+                        "value": "GraphDBKit"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "node",
+                    "id": "c:engine",
+                    "label": "Core",
+                    "properties": {
+                      "lang": {
+                        "type": "string",
+                        "value": "C++20"
+                      },
+                      "name": {
+                        "type": "string",
+                        "value": "GraphEngine"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "node",
+                    "id": "c:catalog",
+                    "label": "Storage",
+                    "properties": {
+                      "file": {
+                        "type": "string",
+                        "value": "catalog.db"
+                      },
+                      "name": {
+                        "type": "string",
+                        "value": "Catalog"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ],
+                "edges": [
+                  {
+                    "kind": "edge",
+                    "id": "12:c:graphdbkit5:WRAPS8:c:engine",
+                    "type": "WRAPS",
+                    "from": "c:graphdbkit",
+                    "to": "c:engine",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "edge",
+                    "id": "8:c:engine4:USES9:c:catalog",
+                    "type": "USES",
+                    "from": "c:engine",
+                    "to": "c:catalog",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "receipt": {
+        "transactionId": "<transaction-id>",
+        "committedLSN": 9
+      }
+    },
+    "playground-acl": {
+      "schemaVersion": 2,
+      "ok": true,
+      "data": {
+        "results": [
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_node"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_edge"
+          },
+          {
+            "ok": true,
+            "mutation": "upsert_edge"
+          },
+          {
+            "nodes": [
+              {
+                "kind": "node",
+                "id": "r:admin",
+                "label": "Role",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "value": "Administrator"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "res:database",
+                "label": "Resource",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "value": "Production DB"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ],
+            "paths": [
+              {
+                "nodes": [
+                  {
+                    "kind": "node",
+                    "id": "u:alice",
+                    "label": "User",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "value": "Alice"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "node",
+                    "id": "r:admin",
+                    "label": "Role",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "value": "Administrator"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ],
+                "edges": [
+                  {
+                    "kind": "edge",
+                    "id": "7:u:alice8:HAS_ROLE7:r:admin",
+                    "type": "HAS_ROLE",
+                    "from": "u:alice",
+                    "to": "r:admin",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ]
+              },
+              {
+                "nodes": [
+                  {
+                    "kind": "node",
+                    "id": "u:alice",
+                    "label": "User",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "value": "Alice"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "node",
+                    "id": "r:admin",
+                    "label": "Role",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "value": "Administrator"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "node",
+                    "id": "res:database",
+                    "label": "Resource",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "value": "Production DB"
+                      }
+                    },
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ],
+                "edges": [
+                  {
+                    "kind": "edge",
+                    "id": "7:u:alice8:HAS_ROLE7:r:admin",
+                    "type": "HAS_ROLE",
+                    "from": "u:alice",
+                    "to": "r:admin",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  },
+                  {
+                    "kind": "edge",
+                    "id": "7:r:admin6:GRANTS12:res:database",
+                    "type": "GRANTS",
+                    "from": "r:admin",
+                    "to": "res:database",
+                    "properties": {},
+                    "last_read_ms": "<timestamp-ms>",
+                    "last_modified_ms": "<timestamp-ms>",
+                    "version": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "receipt": {
+        "transactionId": "<transaction-id>",
+        "committedLSN": 7
+      }
+    },
+    "ngql-invalid-query": {
+      "schemaVersion": 2,
+      "ok": false,
+      "error": {
+        "code": "parseError",
+        "message": "statement 1: invalid unsigned integer limit",
+        "context": {
+          "file": "",
+          "osError": 0,
+          "object": "",
+          "transactionId": "",
+          "statementIndex": 1,
+          "sourceStart": 24,
+          "sourceEnd": 26
+        }
+      }
+    }
+  }
+}

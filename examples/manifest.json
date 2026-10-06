@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "normalization": [
+    "Protocol node/edge last_read_ms and last_modified_ms become <timestamp-ms>; v2 receipt.transactionId becomes <transaction-id>. Property values, ordering, versions, LSNs, error diagnostics and plans compare exactly."
+  ],
+  "examples": [
+    {
+      "id": "swift-basics",
+      "path": "examples/snippets/swift-basics.swift",
+      "language": "swift",
+      "mode": "run",
+      "setupGroup": "swift-guide",
+      "setup": [],
+      "platforms": [
+        "macOS"
+      ],
+      "assertions": "examples/assertions/swift-guide.swift",
+      "expectedStdout": "Swift guide passed: nodes, batch, Codable, bindings and paths."
+    },
+    {
+      "id": "swift-batch",
+      "path": "examples/snippets/swift-batch.swift",
+      "language": "swift",
+      "mode": "run",
+      "setupGroup": "swift-guide",
+      "setup": [
+        "swift-basics"
+      ],
+      "platforms": [
+        "macOS"
+      ],
+      "assertions": "examples/assertions/swift-guide.swift",
+      "expectedStdout": "Swift guide passed: nodes, batch, Codable, bindings and paths."
+    },
+    {
+      "id": "swift-codable",
+      "path": "examples/snippets/swift-codable.swift",
+      "language": "swift",
+      "mode": "run",
+      "setupGroup": "swift-guide",
+      "setup": [
+        "swift-basics",
+        "swift-batch"
+      ],
+      "platforms": [
+        "macOS"
+      ],
+      "assertions": "examples/assertions/swift-guide.swift",
+      "expectedStdout": "Swift guide passed: nodes, batch, Codable, bindings and paths."
+    },
+    {
+      "id": "swift-parameters",
+      "path": "examples/snippets/swift-parameters.swift",
+      "language": "swift",
+      "mode": "run",
+      "setupGroup": "swift-guide",
+      "setup": [
+        "swift-basics",
+        "swift-batch",
+        "swift-codable"
+      ],
+      "platforms": [
+        "macOS"
+      ],
+      "assertions": "examples/assertions/swift-guide.swift",
+      "expectedStdout": "Swift guide passed: nodes, batch, Codable, bindings and paths."
+    },
+    {
+      "id": "swift-traversal",
+      "path": "examples/snippets/swift-traversal.swift",
+      "language": "swift",
+      "mode": "run",
+      "setupGroup": "swift-guide",
+      "setup": [
+        "swift-basics",
+        "swift-batch",
+        "swift-codable",
+        "swift-parameters"
+      ],
+      "platforms": [
+        "macOS"
+      ],
+      "assertions": "examples/assertions/swift-guide.swift",
+      "expectedStdout": "Swift guide passed: nodes, batch, Codable, bindings and paths."
+    },
+    {
+      "id": "swift-lifecycle",
+      "path": "examples/Lifecycle/Sources/Lifecycle/main.swift",
+      "language": "swift",
+      "mode": "run",
+      "setupGroup": "swift-lifecycle",
+      "setup": [],
+      "platforms": [
+        "macOS"
+      ],
+      "expectedStdout": "Lifecycle example passed"
+    },
+    {
+      "id": "ngql-basics",
+      "path": "examples/ngql/ngql-basics.ngql",
+      "language": "ngql",
+      "mode": "run",
+      "setupGroup": "ngql-basics",
+      "setup": [],
+      "platforms": [
+        "macOS",
+        "Linux"
+      ],
+      "expected": "examples/expected/ngql-basics.json"
+    },
+    {
+      "id": "ngql-advanced",
+      "path": "examples/ngql/ngql-advanced.ngql",
+      "language": "ngql",
+      "mode": "run",
+      "setupGroup": "ngql-advanced",
+      "setup": [
+        "examples/ngql/ngql-basics.ngql"
+      ],
+      "platforms": [
+        "macOS",
+        "Linux"
+      ],
+      "expected": "examples/expected/ngql-advanced.json"
+    },
+    {
+      "id": "value-fidelity",
+      "path": "examples/snippets/value-fidelity.cpp",
+      "language": "cpp",
+      "mode": "run",
+      "setupGroup": "value-fidelity",
+      "setup": [],
+      "platforms": [
+        "macOS",
+        "Linux"
+      ],
+      "entryPoint": "value_fidelity_example"
+    },
+    {
+      "id": "ngql-traversal-paths",
+      "path": "examples/ngql/traversal-paths.ngql",
+      "language": "ngql",
+      "mode": "run",
+      "setupGroup": "ngql-traversal-paths",
+      "setup": [],
+      "platforms": [
+        "macOS",
+        "Linux"
+      ],
+      "expected": "examples/expected/ngql-traversal-paths.json"
+    },
+    {
+      "id": "swift-typed-api",
+      "path": "examples/TypedAPI/Sources/TypedAPI/main.swift",
+      "language": "swift",
+      "mode": "run",
+      "setupGroup": "swift-typed-api",
+      "setup": [],
+      "platforms": [
+        "macOS"
+      ],
+      "expectedStdout": "Typed API example passed: exact scalars, projection, receipt, edge and real path."
+    },
+    {
+      "id": "swiftui-lifecycle",
+      "path": "examples/Lifecycle/Sources/Lifecycle/DatabaseLifecycleView.swift",
+      "language": "swift",
+      "mode": "compile",
+      "setupGroup": "swift-lifecycle",
+      "setup": [],
+      "platforms": [
+        "macOS"
+      ],
+      "expectedStdout": "Lifecycle example passed",
+      "limitations": "Compiled with the lifecycle program on macOS; actual app lifecycle/device qualification is T20."
+    },
+    {
+      "id": "playground-social",
+      "path": "examples/ngql/playground-social.ngql",
+      "language": "ngql",
+      "mode": "run",
+      "setupGroup": "playground-social",
+      "setup": [],
+      "platforms": [
+        "macOS",
+        "Linux"
+      ],
+      "expected": "examples/expected/playground-social.json"
+    },
+    {
+      "id": "playground-knowledge",
+      "path": "examples/ngql/playground-knowledge.ngql",
+      "language": "ngql",
+      "mode": "run",
+      "setupGroup": "playground-knowledge",
+      "setup": [],
+      "platforms": [
+        "macOS",
+        "Linux"
+      ],
+      "expected": "examples/expected/playground-knowledge.json"
+    },
+    {
+      "id": "playground-acl",
+      "path": "examples/ngql/playground-acl.ngql",
+      "language": "ngql",
+      "mode": "run",
+      "setupGroup": "playground-acl",
+      "setup": [],
+      "platforms": [
+        "macOS",
+        "Linux"
+      ],
+      "expected": "examples/expected/playground-acl.json"
+    },
+    {
+      "id": "ngql-invalid-query",
+      "path": "examples/ngql/invalid-query.ngql",
+      "language": "ngql",
+      "mode": "run",
+      "setupGroup": "invalid-query",
+      "setup": [],
+      "platforms": [
+        "macOS",
+        "Linux"
+      ],
+      "expected": "examples/expected/ngql-invalid-query.json"
+    },
+    {
+      "id": "swift-lifecycle-fragment",
+      "path": "examples/snippets/swift-lifecycle.swift",
+      "language": "swift",
+      "mode": "fragment",
+      "setupGroup": "none",
+      "setup": [],
+      "platforms": [
+        "macOS"
+      ],
+      "limitations": "Context-dependent async excerpt; use the complete compiled lifecycle program."
+    },
+    {
+      "id": "sample-opening",
+      "path": "examples/NovaGraphApp/Sources/NovaSample/DatabaseOpener.swift",
+      "language": "swift",
+      "mode": "compile",
+      "setupGroup": "swift-lifecycle",
+      "setup": [
+        "swift-lifecycle"
+      ],
+      "platforms": [
+        "macOS"
+      ],
+      "expectedStdout": "Lifecycle example passed"
+    },
+    {
+      "id": "sample-lifecycle",
+      "path": "examples/NovaGraphApp/Sources/NovaSample/SampleLifecycleModifier.swift",
+      "language": "swift",
+      "mode": "compile",
+      "setupGroup": "swift-lifecycle",
+      "setup": [
+        "swift-lifecycle"
+      ],
+      "platforms": [
+        "macOS"
+      ],
+      "expectedStdout": "Lifecycle example passed"
+    }
+  ]
+}

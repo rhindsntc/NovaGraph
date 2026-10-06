@@ -1,0 +1,3 @@
+find nodes Person where name != "Unknown" return { id, name } limit 10;
+walk from grace over FOLLOWS direction in depth 1 limit 10;
+explain find nodes Person where email = "ada@example.com";

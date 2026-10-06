@@ -1,0 +1,10 @@
+// One shortest-hop path per reachable node; repeated routes are not enumerated.
+upsert node Person ada;
+upsert node Person bob;
+upsert node Person cyra;
+upsert node Person dina;
+upsert edge KNOWS ada -> cyra;
+upsert edge KNOWS cyra -> dina;
+upsert edge KNOWS ada -> bob set since=2020;
+upsert edge KNOWS bob -> dina;
+walk from ada over KNOWS depth 2 paths;

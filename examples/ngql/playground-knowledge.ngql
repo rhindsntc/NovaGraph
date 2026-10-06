@@ -1,0 +1,10 @@
+upsert node Core c:engine set name="GraphEngine", lang="C++20";
+upsert node Storage c:wal set name="WalManager", checksum="CRC32";
+upsert node Storage c:catalog set name="Catalog", file="catalog.db";
+upsert node Swift c:graphdbkit set name="GraphDBKit", framework="Swift 6";
+
+upsert edge USES c:engine -> c:wal;
+upsert edge USES c:engine -> c:catalog;
+upsert edge WRAPS c:graphdbkit -> c:engine;
+
+walk from c:graphdbkit depth 2 limit 10 paths;

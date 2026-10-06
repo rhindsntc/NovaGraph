@@ -1,0 +1,72 @@
+# OS and Editor
+.idea/
+.DS_Store
+._*
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Swift & Xcode Build Artifacts
+.build/
+*/.build/
+*/*/.build/
+build/
+DerivedData/
+# Sample project.json is tracked; XcodeGen output remains disposable.
+*.xcodeproj
+*.xcworkspace
+*.xcuserstate
+**/.swiftpm/xcode/xcuserdata/
+*.xcarchive
+Package.resolved
+
+# C++ & CMake Build Artifacts
+*.o
+*.obj
+*.a
+*.dylib
+*.so
+*.xcframework/
+CMakeCache.txt
+CMakeFiles/
+cmake-build-*/
+*.ninja
+.ninja_*
+
+# Node & Web App Dependencies & Builds
+node_modules/
+*/node_modules/
+dist/
+*/dist/
+.vite/
+*/.vite/
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Database Runtime / Local Storage Artifacts
+*.wal
+*.manifest
+catalog.db
+*.log
+
+examples/TypedAPI/.build/
+
+# Python documentation/test helper bytecode
+__pycache__/
+/.idea/misc.xml
+/.idea/workspace.xml
+
+# Private planning, reviews and raw development evidence (kept locally)
+/docs/
+/benchmarks/performance/PLAN.md
+
+# Local credentials and signing material
+.env
+.env.*
+!.env.example
+*.p12
+*.mobileprovision

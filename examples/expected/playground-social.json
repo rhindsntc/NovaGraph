@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 2,
+  "ok": true,
+  "data": {
+    "results": [
+      {
+        "ok": true,
+        "mutation": "create_index",
+        "label": "Person",
+        "property": "email"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_node"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_node"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_node"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_node"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_edge"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_edge"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_edge"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_edge"
+      },
+      {
+        "nodes": [
+          {
+            "kind": "node",
+            "id": "user:grace",
+            "label": "Person",
+            "properties": {
+              "email": {
+                "type": "string",
+                "value": "grace@nova.io"
+              },
+              "name": {
+                "type": "string",
+                "value": "Grace Hopper"
+              },
+              "role": {
+                "type": "string",
+                "value": "Compiler Lead"
+              }
+            },
+            "last_read_ms": "<timestamp-ms>",
+            "last_modified_ms": "<timestamp-ms>",
+            "version": 1
+          },
+          {
+            "kind": "node",
+            "id": "user:margaret",
+            "label": "Person",
+            "properties": {
+              "email": {
+                "type": "string",
+                "value": "margaret@nova.io"
+              },
+              "name": {
+                "type": "string",
+                "value": "Margaret Hamilton"
+              },
+              "role": {
+                "type": "string",
+                "value": "Apollo Lead"
+              }
+            },
+            "last_read_ms": "<timestamp-ms>",
+            "last_modified_ms": "<timestamp-ms>",
+            "version": 1
+          }
+        ],
+        "paths": [
+          {
+            "nodes": [
+              {
+                "kind": "node",
+                "id": "user:ada",
+                "label": "Person",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "value": "ada@nova.io"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "Ada Lovelace"
+                  },
+                  "role": {
+                    "type": "string",
+                    "value": "Architect"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "user:grace",
+                "label": "Person",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "value": "grace@nova.io"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "Grace Hopper"
+                  },
+                  "role": {
+                    "type": "string",
+                    "value": "Compiler Lead"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ],
+            "edges": [
+              {
+                "kind": "edge",
+                "id": "8:user:ada7:FOLLOWS10:user:grace",
+                "type": "FOLLOWS",
+                "from": "user:ada",
+                "to": "user:grace",
+                "properties": {
+                  "since": {
+                    "type": "int",
+                    "value": 2024
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ]
+          },
+          {
+            "nodes": [
+              {
+                "kind": "node",
+                "id": "user:ada",
+                "label": "Person",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "value": "ada@nova.io"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "Ada Lovelace"
+                  },
+                  "role": {
+                    "type": "string",
+                    "value": "Architect"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "user:grace",
+                "label": "Person",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "value": "grace@nova.io"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "Grace Hopper"
+                  },
+                  "role": {
+                    "type": "string",
+                    "value": "Compiler Lead"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "user:margaret",
+                "label": "Person",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "value": "margaret@nova.io"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "Margaret Hamilton"
+                  },
+                  "role": {
+                    "type": "string",
+                    "value": "Apollo Lead"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ],
+            "edges": [
+              {
+                "kind": "edge",
+                "id": "8:user:ada7:FOLLOWS10:user:grace",
+                "type": "FOLLOWS",
+                "from": "user:ada",
+                "to": "user:grace",
+                "properties": {
+                  "since": {
+                    "type": "int",
+                    "value": 2024
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "edge",
+                "id": "10:user:grace7:FOLLOWS13:user:margaret",
+                "type": "FOLLOWS",
+                "from": "user:grace",
+                "to": "user:margaret",
+                "properties": {
+                  "since": {
+                    "type": "int",
+                    "value": 2025
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "receipt": {
+    "transactionId": "<transaction-id>",
+    "committedLSN": 11
+  }
+}

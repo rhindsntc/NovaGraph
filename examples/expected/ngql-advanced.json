@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 2,
+  "ok": true,
+  "data": {
+    "results": [
+      [
+        {
+          "id": "ada",
+          "name": {
+            "type": "string",
+            "value": "Ada"
+          }
+        },
+        {
+          "id": "grace",
+          "name": {
+            "type": "string",
+            "value": "Grace"
+          }
+        }
+      ],
+      [
+        {
+          "kind": "node",
+          "id": "ada",
+          "label": "Person",
+          "properties": {
+            "email": {
+              "type": "string",
+              "value": "ada@example.com"
+            },
+            "name": {
+              "type": "string",
+              "value": "Ada"
+            }
+          },
+          "last_read_ms": "<timestamp-ms>",
+          "last_modified_ms": "<timestamp-ms>",
+          "version": 1
+        }
+      ],
+      {
+        "explain": true,
+        "operation": "FindNodes",
+        "label": "Person",
+        "access_path": "PropertyIndexScan",
+        "index_used": "Person(email)",
+        "filter_key": "email",
+        "filter_operator": "=",
+        "filter_value": "ada@example.com",
+        "limit": 100
+      }
+    ]
+  }
+}

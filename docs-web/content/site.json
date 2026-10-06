@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 1,
+  "version": "development / experimental",
+  "reviewedRevision": "1d93d1bbf8f73c3a7221c76bb066e33cc77c80e2",
+  "categories": [
+    {
+      "id": "getting-started",
+      "title": "Getting Started"
+    },
+    {
+      "id": "architecture-internals",
+      "title": "Architecture & Internals"
+    },
+    {
+      "id": "ngql-reference",
+      "title": "NGQL Query Language"
+    },
+    {
+      "id": "swift-api-reference",
+      "title": "Swift API (GraphDBKit)"
+    },
+    {
+      "id": "apple-integration",
+      "title": "Apple Platform Integration"
+    },
+    {
+      "id": "benchmarks-tooling",
+      "title": "Benchmarks & Tooling"
+    }
+  ],
+  "articles": [
+    {
+      "id": "overview",
+      "categoryId": "getting-started",
+      "source": "docs-web/content/overview.md",
+      "snippetIds": [
+        "swift-basics",
+        "ngql-basics"
+      ]
+    },
+    {
+      "id": "quickstart",
+      "categoryId": "getting-started",
+      "source": "docs-web/content/quickstart.md",
+      "snippetIds": []
+    },
+    {
+      "id": "storage-engine",
+      "categoryId": "architecture-internals",
+      "source": "docs-web/content/storage-engine.md",
+      "snippetIds": []
+    },
+    {
+      "id": "indexes-and-adjacency",
+      "categoryId": "architecture-internals",
+      "source": "docs-web/content/indexes-and-adjacency.md",
+      "snippetIds": []
+    },
+    {
+      "id": "ngql-syntax",
+      "categoryId": "ngql-reference",
+      "source": "docs-web/content/ngql-syntax.md",
+      "snippetIds": [
+        "ngql-basics",
+        "ngql-traversal-paths"
+      ]
+    },
+    {
+      "id": "ngql-advanced",
+      "categoryId": "ngql-reference",
+      "source": "docs-web/content/ngql-advanced.md",
+      "snippetIds": []
+    },
+    {
+      "id": "graph-database",
+      "categoryId": "swift-api-reference",
+      "source": "docs-web/content/graph-database.md",
+      "snippetIds": [
+        "swift-typed-api"
+      ]
+    },
+    {
+      "id": "traversal-builder",
+      "categoryId": "swift-api-reference",
+      "source": "docs-web/content/traversal-builder.md",
+      "snippetIds": [
+        "swift-traversal"
+      ]
+    },
+    {
+      "id": "swiftui-lifecycle",
+      "categoryId": "apple-integration",
+      "source": "docs-web/content/swiftui-lifecycle.md",
+      "snippetIds": [
+        "swift-lifecycle",
+        "swiftui-lifecycle"
+      ]
+    },
+    {
+      "id": "benchmarks-data",
+      "categoryId": "benchmarks-tooling",
+      "source": "docs-web/content/benchmarks-data.md",
+      "snippetIds": []
+    },
+    {
+      "id": "developer-tools",
+      "categoryId": "benchmarks-tooling",
+      "source": "docs-web/content/developer-tools.md",
+      "snippetIds": []
+    },
+    {
+      "id": "testing",
+      "categoryId": "benchmarks-tooling",
+      "source": "docs-web/content/testing.md",
+      "snippetIds": []
+    },
+    {
+      "id": "architecture",
+      "categoryId": "architecture-internals",
+      "source": "docs-web/content/architecture.md",
+      "snippetIds": []
+    },
+    {
+      "id": "documentation",
+      "categoryId": "benchmarks-tooling",
+      "source": "docs-web/content/documentation.md",
+      "snippetIds": []
+    },
+    {
+      "id": "file-format",
+      "categoryId": "architecture-internals",
+      "source": "docs-web/content/file-format.md",
+      "snippetIds": []
+    },
+    {
+      "id": "compatibility",
+      "categoryId": "getting-started",
+      "source": "docs-web/content/compatibility.md",
+      "snippetIds": []
+    },
+    {
+      "id": "values",
+      "categoryId": "ngql-reference",
+      "source": "docs-web/content/values.md",
+      "snippetIds": []
+    },
+    {
+      "id": "errors",
+      "categoryId": "architecture-internals",
+      "source": "docs-web/content/errors.md",
+      "snippetIds": []
+    },
+    {
+      "id": "wal",
+      "categoryId": "architecture-internals",
+      "source": "docs-web/content/wal.md",
+      "snippetIds": []
+    },
+    {
+      "id": "transactions",
+      "categoryId": "architecture-internals",
+      "source": "docs-web/content/transactions.md",
+      "snippetIds": []
+    },
+    {
+      "id": "maintenance",
+      "categoryId": "architecture-internals",
+      "source": "docs-web/content/maintenance.md",
+      "snippetIds": []
+    },
+    {
+      "id": "recovery",
+      "categoryId": "architecture-internals",
+      "source": "docs-web/content/recovery.md",
+      "snippetIds": []
+    },
+    {
+      "id": "backup-restore",
+      "categoryId": "architecture-internals",
+      "source": "docs-web/content/backup-restore.md",
+      "snippetIds": []
+    },
+    {
+      "id": "sample-app",
+      "categoryId": "getting-started",
+      "source": "examples/NovaGraphApp/README.md",
+      "snippetIds": [
+        "sample-opening",
+        "sample-lifecycle"
+      ]
+    },
+    {
+      "id": "release-preflight",
+      "categoryId": "getting-started",
+      "source": "docs-web/content/release-preflight.md",
+      "snippetIds": [],
+      "relatedIds": [
+        "compatibility",
+        "testing",
+        "documentation"
+      ]
+    },
+    {
+      "id": "roadmap",
+      "categoryId": "getting-started",
+      "source": "docs-web/content/roadmap.md",
+      "snippetIds": [],
+      "relatedIds": [
+        "compatibility",
+        "testing",
+        "release-preflight"
+      ]
+    }
+  ],
+  "snippets": [
+    {
+      "id": "swift-basics",
+      "path": "examples/snippets/swift-basics.swift",
+      "label": "Swift",
+      "language": "swift"
+    },
+    {
+      "id": "swift-batch",
+      "path": "examples/snippets/swift-batch.swift",
+      "label": "Atomic Swift batch",
+      "language": "swift"
+    },
+    {
+      "id": "swift-traversal",
+      "path": "examples/snippets/swift-traversal.swift",
+      "label": "Swift traversal",
+      "language": "swift"
+    },
+    {
+      "id": "swift-codable",
+      "path": "examples/snippets/swift-codable.swift",
+      "label": "Codable properties",
+      "language": "swift"
+    },
+    {
+      "id": "swift-lifecycle",
+      "path": "examples/Lifecycle/Sources/Lifecycle/main.swift",
+      "label": "Compiled lifecycle example",
+      "language": "swift"
+    },
+    {
+      "id": "ngql-basics",
+      "path": "examples/ngql/ngql-basics.ngql",
+      "label": "NGQL",
+      "language": "ngql"
+    },
+    {
+      "id": "ngql-advanced",
+      "path": "examples/ngql/ngql-advanced.ngql",
+      "label": "NGQL projections and explain",
+      "language": "ngql"
+    },
+    {
+      "id": "swift-parameters",
+      "path": "examples/snippets/swift-parameters.swift",
+      "label": "Raw parameter query",
+      "language": "swift"
+    },
+    {
+      "id": "value-fidelity",
+      "path": "examples/snippets/value-fidelity.cpp",
+      "label": "C++ scalar fidelity",
+      "language": "cpp"
+    },
+    {
+      "id": "ngql-traversal-paths",
+      "path": "examples/ngql/traversal-paths.ngql",
+      "label": "Shortest-hop paths",
+      "language": "ngql"
+    },
+    {
+      "id": "swift-typed-api",
+      "path": "examples/TypedAPI/Sources/TypedAPI/main.swift",
+      "label": "Compiled typed API",
+      "language": "swift"
+    },
+    {
+      "id": "swiftui-lifecycle",
+      "path": "examples/Lifecycle/Sources/Lifecycle/DatabaseLifecycleView.swift",
+      "label": "SwiftUI lifecycle integration",
+      "language": "swift"
+    },
+    {
+      "id": "sample-opening",
+      "path": "examples/NovaGraphApp/Sources/NovaSample/DatabaseOpener.swift",
+      "language": "swift",
+      "label": "Sample database owner"
+    },
+    {
+      "id": "sample-lifecycle",
+      "path": "examples/NovaGraphApp/Sources/NovaSample/SampleLifecycleModifier.swift",
+      "language": "swift",
+      "label": "Sample lifecycle binding"
+    }
+  ],
+  "presets": [
+    {
+      "id": "social",
+      "name": "Social Network",
+      "description": "Multi-hop user follows and collaborations with bounded traversals",
+      "querySource": "examples/ngql/playground-social.ngql",
+      "exampleId": "playground-social"
+    },
+    {
+      "id": "knowledge",
+      "name": "Architecture & Tech Stack",
+      "description": "Component relationship graph of NovaGraph internals",
+      "querySource": "examples/ngql/playground-knowledge.ngql",
+      "exampleId": "playground-knowledge"
+    },
+    {
+      "id": "acl",
+      "name": "Authorization & Roles",
+      "description": "Role-based access control and team permission hierarchies",
+      "querySource": "examples/ngql/playground-acl.ngql",
+      "exampleId": "playground-acl"
+    }
+  ],
+  "platforms": [
+    {
+      "name": "iOS",
+      "minimum": "16",
+      "status": "Simulator checks; physical devices and minimum runtime not qualified"
+    },
+    {
+      "name": "macOS",
+      "minimum": "13",
+      "status": "Development checks on recent macOS; minimum runtime not qualified"
+    },
+    {
+      "name": "tvOS",
+      "minimum": "16",
+      "status": "Declared; runtime qualification incomplete"
+    },
+    {
+      "name": "watchOS",
+      "minimum": "9",
+      "status": "Declared; runtime qualification incomplete"
+    },
+    {
+      "name": "Mac Catalyst",
+      "minimum": "16",
+      "status": "Declared; runtime qualification incomplete"
+    },
+    {
+      "name": "visionOS",
+      "minimum": null,
+      "status": "Unsupported"
+    }
+  ],
+  "limitations": [
+    "Experimental and not production-ready; no verified production release.",
+    "Declared deployment targets are not a fully qualified runtime support matrix.",
+    "The static playground displays recorded fixtures; live queries require the opt-in local runner.",
+    "Single-process database ownership; flat scalar properties only."
+  ]
+}

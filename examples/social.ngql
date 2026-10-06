@@ -1,0 +1,11 @@
+create index on Person(email);
+upsert node Person user:1 set name="Ada", email="ada@example.com", age=37, active=true;
+upsert node Person user:2 set name="Grace", email="grace@example.com", age=39, active=true;
+upsert node Person user:3 set name="Linus", email="linus@example.com", age=56, active=false;
+upsert edge FOLLOWS user:1 -> user:2 set since=2026;
+upsert edge FOLLOWS user:2 -> user:3 set since=2026;
+get node user:1;
+find nodes Person where email = "ada@example.com" limit 1;
+walk from user:1 over FOLLOWS depth 2 limit 25;
+walk from user:3 over FOLLOWS direction in depth 2 limit 25;
+checkpoint;

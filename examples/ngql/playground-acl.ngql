@@ -1,0 +1,8 @@
+upsert node User u:alice set name="Alice";
+upsert node Role r:admin set name="Administrator";
+upsert node Resource res:database set name="Production DB";
+
+upsert edge HAS_ROLE u:alice -> r:admin;
+upsert edge GRANTS r:admin -> res:database;
+
+walk from u:alice depth 2 limit 10 paths;

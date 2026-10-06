@@ -1,0 +1,4 @@
+module CGraphDB {
+    header "CGraphDB.h"
+    export *
+}

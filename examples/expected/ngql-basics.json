@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 2,
+  "ok": true,
+  "data": {
+    "results": [
+      {
+        "ok": true,
+        "mutation": "create_index",
+        "label": "Person",
+        "property": "email"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_node"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_node"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_edge"
+      },
+      {
+        "kind": "node",
+        "id": "ada",
+        "label": "Person",
+        "properties": {
+          "email": {
+            "type": "string",
+            "value": "ada@example.com"
+          },
+          "name": {
+            "type": "string",
+            "value": "Ada"
+          }
+        },
+        "last_read_ms": "<timestamp-ms>",
+        "last_modified_ms": "<timestamp-ms>",
+        "version": 1
+      },
+      [
+        {
+          "kind": "node",
+          "id": "ada",
+          "label": "Person",
+          "properties": {
+            "email": {
+              "type": "string",
+              "value": "ada@example.com"
+            },
+            "name": {
+              "type": "string",
+              "value": "Ada"
+            }
+          },
+          "last_read_ms": "<timestamp-ms>",
+          "last_modified_ms": "<timestamp-ms>",
+          "version": 1
+        }
+      ],
+      [
+        {
+          "kind": "node",
+          "id": "grace",
+          "label": "Person",
+          "properties": {
+            "name": {
+              "type": "string",
+              "value": "Grace"
+            }
+          },
+          "last_read_ms": "<timestamp-ms>",
+          "last_modified_ms": "<timestamp-ms>",
+          "version": 1
+        }
+      ]
+    ]
+  },
+  "receipt": {
+    "transactionId": "<transaction-id>",
+    "committedLSN": 6
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "schemaVersion": 2,
+  "ok": true,
+  "data": {
+    "results": [
+      {
+        "ok": true,
+        "mutation": "upsert_node"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_node"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_node"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_node"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_edge"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_edge"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_edge"
+      },
+      {
+        "nodes": [
+          {
+            "kind": "node",
+            "id": "c:engine",
+            "label": "Core",
+            "properties": {
+              "lang": {
+                "type": "string",
+                "value": "C++20"
+              },
+              "name": {
+                "type": "string",
+                "value": "GraphEngine"
+              }
+            },
+            "last_read_ms": "<timestamp-ms>",
+            "last_modified_ms": "<timestamp-ms>",
+            "version": 1
+          },
+          {
+            "kind": "node",
+            "id": "c:wal",
+            "label": "Storage",
+            "properties": {
+              "checksum": {
+                "type": "string",
+                "value": "CRC32"
+              },
+              "name": {
+                "type": "string",
+                "value": "WalManager"
+              }
+            },
+            "last_read_ms": "<timestamp-ms>",
+            "last_modified_ms": "<timestamp-ms>",
+            "version": 1
+          },
+          {
+            "kind": "node",
+            "id": "c:catalog",
+            "label": "Storage",
+            "properties": {
+              "file": {
+                "type": "string",
+                "value": "catalog.db"
+              },
+              "name": {
+                "type": "string",
+                "value": "Catalog"
+              }
+            },
+            "last_read_ms": "<timestamp-ms>",
+            "last_modified_ms": "<timestamp-ms>",
+            "version": 1
+          }
+        ],
+        "paths": [
+          {
+            "nodes": [
+              {
+                "kind": "node",
+                "id": "c:graphdbkit",
+                "label": "Swift",
+                "properties": {
+                  "framework": {
+                    "type": "string",
+                    "value": "Swift 6"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "GraphDBKit"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "c:engine",
+                "label": "Core",
+                "properties": {
+                  "lang": {
+                    "type": "string",
+                    "value": "C++20"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "GraphEngine"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ],
+            "edges": [
+              {
+                "kind": "edge",
+                "id": "12:c:graphdbkit5:WRAPS8:c:engine",
+                "type": "WRAPS",
+                "from": "c:graphdbkit",
+                "to": "c:engine",
+                "properties": {},
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ]
+          },
+          {
+            "nodes": [
+              {
+                "kind": "node",
+                "id": "c:graphdbkit",
+                "label": "Swift",
+                "properties": {
+                  "framework": {
+                    "type": "string",
+                    "value": "Swift 6"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "GraphDBKit"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "c:engine",
+                "label": "Core",
+                "properties": {
+                  "lang": {
+                    "type": "string",
+                    "value": "C++20"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "GraphEngine"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "c:wal",
+                "label": "Storage",
+                "properties": {
+                  "checksum": {
+                    "type": "string",
+                    "value": "CRC32"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "WalManager"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ],
+            "edges": [
+              {
+                "kind": "edge",
+                "id": "12:c:graphdbkit5:WRAPS8:c:engine",
+                "type": "WRAPS",
+                "from": "c:graphdbkit",
+                "to": "c:engine",
+                "properties": {},
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "edge",
+                "id": "8:c:engine4:USES5:c:wal",
+                "type": "USES",
+                "from": "c:engine",
+                "to": "c:wal",
+                "properties": {},
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ]
+          },
+          {
+            "nodes": [
+              {
+                "kind": "node",
+                "id": "c:graphdbkit",
+                "label": "Swift",
+                "properties": {
+                  "framework": {
+                    "type": "string",
+                    "value": "Swift 6"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "GraphDBKit"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "c:engine",
+                "label": "Core",
+                "properties": {
+                  "lang": {
+                    "type": "string",
+                    "value": "C++20"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "GraphEngine"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "c:catalog",
+                "label": "Storage",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "value": "catalog.db"
+                  },
+                  "name": {
+                    "type": "string",
+                    "value": "Catalog"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ],
+            "edges": [
+              {
+                "kind": "edge",
+                "id": "12:c:graphdbkit5:WRAPS8:c:engine",
+                "type": "WRAPS",
+                "from": "c:graphdbkit",
+                "to": "c:engine",
+                "properties": {},
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "edge",
+                "id": "8:c:engine4:USES9:c:catalog",
+                "type": "USES",
+                "from": "c:engine",
+                "to": "c:catalog",
+                "properties": {},
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "receipt": {
+    "transactionId": "<transaction-id>",
+    "committedLSN": 9
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 2,
+  "ok": false,
+  "error": {
+    "code": "parseError",
+    "message": "statement 1: invalid unsigned integer limit",
+    "context": {
+      "file": "",
+      "osError": 0,
+      "object": "",
+      "transactionId": "",
+      "statementIndex": 1,
+      "sourceStart": 24,
+      "sourceEnd": 26
+    }
+  }
+}

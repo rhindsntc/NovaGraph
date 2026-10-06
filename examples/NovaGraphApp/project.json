@@ -1,0 +1,141 @@
+{
+  "name": "NovaGraphApp",
+  "options": {
+    "minimumXcodeGenVersion": "2.45.0"
+  },
+  "packages": {
+    "NovaSample": {
+      "path": "."
+    }
+  },
+  "settings": {
+    "base": {
+      "SWIFT_VERSION": "6.0",
+      "GENERATE_INFOPLIST_FILE": "YES",
+      "CODE_SIGN_STYLE": "Automatic"
+    }
+  },
+  "targets": {
+    "NovaGraphApp_macOS": {
+      "type": "application",
+      "platform": "macOS",
+      "deploymentTarget": "13.0",
+      "sources": [
+        "App"
+      ],
+      "dependencies": [
+        {
+          "package": "NovaSample",
+          "product": "NovaSample"
+        }
+      ],
+      "settings": {
+        "base": {
+          "PRODUCT_BUNDLE_IDENTIFIER": "org.novagraph.sample.macos",
+          "PRODUCT_NAME": "NovaGraphSample",
+          "INFOPLIST_KEY_CFBundleDisplayName": "NovaGraph Sample",
+          "CODE_SIGN_IDENTITY": "-",
+          "ENABLE_HARDENED_RUNTIME": "NO"
+        }
+      }
+    },
+    "NovaGraphApp_macOSUITests": {
+      "type": "bundle.ui-testing",
+      "platform": "macOS",
+      "deploymentTarget": "13.0",
+      "sources": [
+        "UITests"
+      ],
+      "dependencies": [
+        {
+          "target": "NovaGraphApp_macOS"
+        }
+      ],
+      "settings": {
+        "base": {
+          "PRODUCT_BUNDLE_IDENTIFIER": "org.novagraph.sample.uitests.macos",
+          "CODE_SIGN_IDENTITY": "-",
+          "TEST_TARGET_NAME": "NovaGraphApp_macOS"
+        }
+      }
+    },
+    "NovaGraphApp_iOS": {
+      "type": "application",
+      "platform": "iOS",
+      "deploymentTarget": "16.0",
+      "sources": [
+        "App"
+      ],
+      "dependencies": [
+        {
+          "package": "NovaSample",
+          "product": "NovaSample"
+        }
+      ],
+      "settings": {
+        "base": {
+          "PRODUCT_BUNDLE_IDENTIFIER": "org.novagraph.sample.ios",
+          "PRODUCT_NAME": "NovaGraphSample",
+          "INFOPLIST_KEY_CFBundleDisplayName": "NovaGraph Sample",
+          "TARGETED_DEVICE_FAMILY": "1,2",
+          "INFOPLIST_KEY_UILaunchScreen_Generation": "YES",
+          "INFOPLIST_KEY_UIApplicationSceneManifest_Generation": "YES"
+        }
+      }
+    },
+    "NovaGraphApp_iOSUITests": {
+      "type": "bundle.ui-testing",
+      "platform": "iOS",
+      "deploymentTarget": "16.0",
+      "sources": [
+        "UITests"
+      ],
+      "dependencies": [
+        {
+          "target": "NovaGraphApp_iOS"
+        }
+      ],
+      "settings": {
+        "base": {
+          "PRODUCT_BUNDLE_IDENTIFIER": "org.novagraph.sample.uitests.ios",
+          "CODE_SIGN_IDENTITY": "-",
+          "TEST_TARGET_NAME": "NovaGraphApp_iOS"
+        }
+      }
+    }
+  },
+  "schemes": {
+    "NovaGraphApp_macOS": {
+      "build": {
+        "targets": {
+          "NovaGraphApp_macOS": "all",
+          "NovaGraphApp_macOSUITests": [
+            "test"
+          ]
+        }
+      },
+      "test": {
+        "targets": [
+          "NovaGraphApp_macOSUITests"
+        ],
+        "gatherCoverageData": true
+      }
+    },
+    "NovaGraphApp_iOS": {
+      "build": {
+        "targets": {
+          "NovaGraphApp_iOS": "all",
+          "NovaGraphApp_iOSUITests": [
+            "test"
+          ]
+        }
+      },
+      "test": {
+        "targets": [
+          "NovaGraphApp_iOSUITests"
+        ],
+        "gatherCoverageData": true
+      }
+    }
+  }
+}

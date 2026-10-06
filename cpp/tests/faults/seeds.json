@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "description": "Permanent regression seeds and process boundaries. Append reproduced failing seeds when a campaign finds a defect; never replace the retained corpus with a new random seed.",
+  "modelSeeds": [0, 1, 2, 17, 31, 127, 255, 560],
+  "processBoundaries": [1, 2, 3, 17, 31, 127, 255]
+}

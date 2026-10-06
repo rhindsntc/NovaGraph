@@ -1,0 +1,46 @@
+name: apple-artifact-candidates
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      require_qualified:
+        description: Require the full minimum-runtime/device matrix (blocks while evidence is unavailable)
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  candidate:
+    runs-on: macos-26
+    timeout-minutes: 60
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.6.app/Contents/Developer
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate packaging contracts
+        run: |
+          python3 tools/check-test-inventory.py --artifacts
+          python3 tools/test-apple-artifacts.py
+      - name: Build every required SDK and architecture with pinned Xcode
+        run: |
+          python3 tools/apple_artifacts.py build --version 0.0.0-ci --output dist/apple/ci --xcode-build 17F113
+      - name: Build source and binary consumers and exercise available runtimes
+        run: |
+          python3 tools/test-apple-consumers.py dist/apple/ci/NovaGraph-0.0.0-ci --output build/apple-consumers
+          python3 tools/apple_artifacts.py verify dist/apple/ci/NovaGraph-0.0.0-ci --evidence build/apple-consumers/evidence.json --report build/apple-artifacts.json
+      - name: Require complete runtime qualification when requested
+        if: github.event_name == 'workflow_dispatch' && inputs.require_qualified
+        run: python3 tools/apple_artifacts.py verify dist/apple/ci/NovaGraph-0.0.0-ci --evidence build/apple-consumers/evidence.json --require-qualified
+      # Job artifacts are experimental candidates, never a public release.
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: unqualified-apple-candidate
+          path: |
+            dist/apple/ci/*.zip
+            dist/apple/ci/SHA256SUMS
+            dist/apple/ci/NovaGraph-0.0.0-ci/artifact-manifest.json
+            build/apple-artifacts.json
+            build/apple-consumers/evidence.json
+            build/apple-consumers/**/*.log
+          if-no-files-found: error

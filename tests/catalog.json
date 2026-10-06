@@ -1,0 +1,2987 @@
+{
+  "schemaVersion": 1,
+  "tests": [
+    {
+      "id": "artifact.AppleArtifactContracts.test_artifact_paths_cannot_escape_bundle",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_build_input_digest_covers_all_distributed_inputs",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_build_records_starting_identity_and_allows_stable_dirty_inputs",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_build_rejects_git_identity_drift_before_publishing",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_build_rejects_source_edits_before_publishing",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_catalyst_16_requires_macos_13_runtime",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_clean_foreign_source_in_development_mode_cannot_qualify",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_every_object_load_command_must_match",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_extra_file_cannot_escape_checksum_inventory",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_foreign_or_dirty_consumer_evidence_is_rejected",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_minimum_simulator_is_selected_alongside_newer_runtime",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_missing_or_changed_file_fails_checksum_gate",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_missing_watch_slice_cannot_pass",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_newer_runtime_does_not_prove_minimum_runtime",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_qualified_label_without_actual_distribution_runs_is_rejected",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_resource_size_metadata_rejects_missing_foreign_and_invalid_values",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_resource_sizes_measure_verified_files_without_self_manifest",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_resource_sizes_reject_changed_missing_or_untracked_bundle_files",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_resource_sizes_reject_dirty_foreign_or_invalid_revision",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_resource_sizes_reject_stale_zip_and_checksum",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_resource_sizes_reject_unsafe_or_missing_hash_inventory",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_same_candidate_device_evidence_merges_with_complete_builds",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_slice_sizes_reject_missing_or_stale_compressed_bytes",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_unavailable_runtime_is_a_release_blocker",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_verify_report_cannot_modify_verified_bundle",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_verify_report_emits_sizes_without_runtime_evidence",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_wrong_architecture_platform_or_floor_cannot_pass",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_xcode_slice_order_does_not_change_artifact_metadata",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_zip_is_stable_and_preserves_license",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "artifact.AppleArtifactContracts.test_zip_must_contain_the_verified_bundle",
+      "suite": "AppleArtifactContracts",
+      "owner": "T19",
+      "language": "artifact"
+    },
+    {
+      "id": "cpp.active_scan_and_traversal_cancel_without_partial_results",
+      "suite": "consistency",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.allocation_failure_precedes_wal_and_preserves_live_state",
+      "suite": "transactions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.atomic_catalog_faults_preserve_durable_predecessor",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.backup_never_replaces_destination_created_during_copy",
+      "suite": "maintenance",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.backup_restore_preserves_cold_graph_and_source_bytes",
+      "suite": "maintenance",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.barrier_controls_storage_interleaving",
+      "suite": "storage",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.batch_validates_staged_endpoints_and_rolls_back",
+      "suite": "transactions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.binary_corruption_detected",
+      "suite": "values",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.binary_corruption_never_uses_text_fallback",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.binary_decoder_rejects_invalid_kind_and_trailing_bytes",
+      "suite": "values",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.binary_round_trip",
+      "suite": "values",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.binary_scalar_types_and_identity_validation",
+      "suite": "values",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.c_inspection_cursors_are_bound_to_engine_instance",
+      "suite": "c_api",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.c_inspection_pages_are_typed_bounded_and_revision_checked",
+      "suite": "c_api",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.c_inspection_rejects_invalid_limits_cancellation_and_closed_handles",
+      "suite": "c_api",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.c_open_transports_busy_and_unsupported_errors",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.c_parameter_errors_stay_inside_c_boundary",
+      "suite": "values",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.c_query_preserves_typed_not_found_and_parse_errors",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.c_response_allocation_failure_precedes_commit_in_both_abis",
+      "suite": "c_api",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.c_snapshot_rejects_writes_reentrancy_and_close",
+      "suite": "lifecycle",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.c_v2_atomic_failure_and_legacy_error_shape",
+      "suite": "c_api",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.c_v2_length_bearing_nul_and_structured_errors",
+      "suite": "c_api",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.c_v2_open_error_and_nonterminated_input_ownership",
+      "suite": "c_api",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.c_v2_per_request_options_only_tighten_database_bounds",
+      "suite": "c_api",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.c_v2_scalar_tags_and_commit_receipt",
+      "suite": "c_api",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.c_v2_validates_lengths_options_and_utf8_before_mutation",
+      "suite": "c_api",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.cancellation_after_cold_io_prevents_promotion",
+      "suite": "consistency",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.cancellation_preserves_commit_receipt_and_unknown_outcome",
+      "suite": "transactions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.cancelled_gc_removes_nothing",
+      "suite": "gc",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.catalog_contains_all_index_sections",
+      "suite": "catalog",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.catalog_rejects_stale_postings_and_bad_sections",
+      "suite": "catalog",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.checkpoint_and_writer_interleaving_retains_every_commit",
+      "suite": "checkpoint",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.checkpoint_catalog_failure_retries_new_payload_sync",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.checkpoint_changed_version_extent_or_checksum_cannot_reuse_durability",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.checkpoint_failed_new_payload_sync_does_not_become_durable_knowledge",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.checkpoint_group_sync_failure_preserves_root_wal_and_retry",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.checkpoint_groups_cold_syncs_before_publishing_recoverable_root",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.checkpoint_mixed_node_edge_manifests_reuse_only_exact_identities",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.checkpoint_reused_payload_corruption_remains_a_read_error",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.checkpoint_reused_payloads_survive_every_modeled_publication_boundary",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.checkpoint_root_failure_fences_without_adopting_new_payloads",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.checkpoint_syncs_only_new_replaced_and_retrimmed_payloads",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.checkpoint_unchanged_payloads_remain_durable_without_resync_after_reopen",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.checkpoint_unordered_manifests_conservatively_sync_all_payloads",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.close_during_commit_drains_owned_write_and_preserves_outcome",
+      "suite": "lifecycle",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.close_failure_is_retained_and_never_retried_by_destruction",
+      "suite": "lifecycle",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.cold_index_survives_rebuild",
+      "suite": "regressions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.cold_index_survives_reopen",
+      "suite": "regressions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.cold_indexes_rebuild_and_reopen_equivalent",
+      "suite": "indexes",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.cold_missing_truncated_and_wrong_version_payloads_are_errors",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.cold_payload_wrong_identity_is_corruption",
+      "suite": "indexes",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.cold_transition_rejects_stale_version",
+      "suite": "storage",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.cold_traversal_propagates_read_failure",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.cold_traversal_survives_reopen",
+      "suite": "storage",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.commit_sync_failure_publishes_nothing_and_recovery_is_atomic",
+      "suite": "transactions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.committed_batch_replays_without_close_or_checkpoint",
+      "suite": "transactions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.compact_posting_split_reservations_rollback_and_outlive_request",
+      "suite": "indexes",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.compact_postings_fit_ten_thousand_keys_in_one_mib",
+      "suite": "indexes",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.compact_postings_match_model_across_splits_merges_and_failures",
+      "suite": "indexes",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.concurrent_close_and_owned_requests_finish_without_invalid_handles",
+      "suite": "lifecycle",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.corrupt_catalog_rejects_open",
+      "suite": "regressions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.corrupt_open_preserves_original_catalog",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.corrupt_wal_open_preserves_original_bytes",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.current_retains_previous_catalog_and_wal_coverage",
+      "suite": "checkpoint",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.declaring_index_reads_existing_cold_properties",
+      "suite": "indexes",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.deep_tree_read_budget_rejects_before_activity_copy",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.deletion_and_inbound_walk",
+      "suite": "storage",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.directory_lock_aliases_and_process_death",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.directory_owner_rejects_another_process",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.documentation_value_fidelity_example",
+      "suite": "values",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.double_json_round_trip",
+      "suite": "regressions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.duplicate_directory_owner_is_rejected",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.edge_and_index_tuples_do_not_alias",
+      "suite": "values",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.exception_after_commit_sync_is_unknown_and_fenced",
+      "suite": "transactions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.explicit_close_is_idempotent_rejects_work_and_releases_directory",
+      "suite": "lifecycle",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.explicit_rebuild_repairs_cold_index_mismatch_without_losing_records",
+      "suite": "maintenance",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.failed_batch_rolls_back",
+      "suite": "regressions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.failed_cold_write_retains_hot_record",
+      "suite": "storage",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.failed_new_cold_index_does_not_publish_partial_postings",
+      "suite": "indexes",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.failed_program_remains_absent_after_checkpoint",
+      "suite": "transactions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.failed_rebuild_preserves_current_indexes",
+      "suite": "indexes",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.failed_recovery_spill_preserves_committed_evidence",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.failed_root_publication_fences_and_retains_acknowledged_wal",
+      "suite": "checkpoint",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.find_propagates_cold_read_failure",
+      "suite": "regressions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.forced_trim_obeys_target_and_pins_without_ttl",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.gc_large_retained_catalogs_fit_small_workspace_and_fail_before_deletion",
+      "suite": "gc",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.gc_one_candidate_on_large_graph_fits_sixty_four_kib",
+      "suite": "gc",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.gc_retains_previous_catalog_payloads_then_reclaims_orphans",
+      "suite": "gc",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.gc_small_pages_converge_without_losing_live_or_external_files",
+      "suite": "gc",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.graceful_close_persists_hot_records",
+      "suite": "storage",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.graph_model_detects_dangling_edge_leak",
+      "suite": "model",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.graph_model_detects_unexpected_mutation",
+      "suite": "model",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.hot_label_rebuild_does_not_reserve_unrelated_payload",
+      "suite": "indexes",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.hot_scalar_index_does_not_reserve_unrelated_payload",
+      "suite": "indexes",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.identity_limits_and_bounded_payload_names",
+      "suite": "values",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.index_large_payloads_with_bounded_workspace",
+      "suite": "indexes",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.index_section_enum_count_and_version_corruption_is_explicit",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.indexed_and_scanned_numeric_equality_agree",
+      "suite": "values",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.indexed_scanned_and_bidirectional_results_survive_storage_states",
+      "suite": "indexes",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.invalid_root_and_retained_catalog_preserve_wal_tail_evidence",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.json_double_extremes_preserve_representable_values_and_reject_underflow",
+      "suite": "values",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.json_rejects_malformed_and_unsupported_values",
+      "suite": "values",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.json_scalar_round_trips",
+      "suite": "values",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.legacy_import_preserves_scalars_cold_indexes_edges_and_source",
+      "suite": "maintenance",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.legacy_import_rejects_ambiguous_delimiter_edge_history",
+      "suite": "maintenance",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.legacy_import_rejects_damaged_or_missing_data_without_destination",
+      "suite": "maintenance",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.legacy_replay_allows_recorded_missing_deletes_and_forward_edges",
+      "suite": "maintenance",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.maintenance_checkpoint_preserves_durable_result_after_cancellation",
+      "suite": "lifecycle",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.maintenance_checkpoint_wait_honors_cancellation_and_deadline",
+      "suite": "lifecycle",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.maintenance_rejects_alias_existing_destination_busy_and_missing_source",
+      "suite": "maintenance",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.maintenance_rejects_corrupt_catalog_unknown_version_and_legacy_tail",
+      "suite": "maintenance",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.maintenance_reports_unknown_legacy_timestamps_and_rejects_external_payload_directory",
+      "suite": "maintenance",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.maintenance_sigkill_preserves_source_and_publishes_only_verified_destinations",
+      "suite": "maintenance",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.memory_reservations_reject_writes_and_results_before_publication",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.missing_checkpoint_catalog_rejects_open_preserving_wal",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.missing_current_rejects_orphan_generations",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.missing_wal_is_not_silently_recreated",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.modeled_power_loss_at_every_small_graph_boundary",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.monotonic_inactivity_ignores_wall_jumps_and_resets_on_open",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.negative_query_bounds_rejected",
+      "suite": "regressions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.nested_snapshots_on_distinct_engines_still_reject_outer_write",
+      "suite": "consistency",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.nonfinite_values_are_rejected",
+      "suite": "values",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.numeric_comparisons_are_exact",
+      "suite": "values",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.numeric_parameter_identities_keep_precision",
+      "suite": "values",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.offline_current_maintenance_rejects_missing_ownership_file",
+      "suite": "maintenance",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.offline_verify_does_not_repair_tail_and_rejects_missing_payload",
+      "suite": "maintenance",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.online_backup_captures_committed_state_while_handle_is_open",
+      "suite": "maintenance",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.ordinary_open_rejects_legacy_without_adding_files",
+      "suite": "maintenance",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.parameter_equals_round_trip",
+      "suite": "regressions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.parameter_newline_round_trip",
+      "suite": "regressions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.parameters_comparisons_projections_explain",
+      "suite": "queries",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.parser_comments_preserve_quoted_text_and_statement_boundaries",
+      "suite": "parser",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.parser_error_envelope_has_statement_and_exact_token_span",
+      "suite": "parser",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.parser_failed_keyword_points_to_offending_token",
+      "suite": "parser",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.parser_lexical_error_span_includes_original_leading_comments",
+      "suite": "parser",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.parser_quoted_parameter_lookalikes_are_literal",
+      "suite": "parser",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.parser_rejects_invalid_utf8_projection_before_serialization",
+      "suite": "parser",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.parser_rejects_malformed_options_without_mutation",
+      "suite": "parser",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.parser_supports_statement_operator_escape_and_parameter_fixtures",
+      "suite": "parser",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.parser_typed_parameter_values_cannot_inject_statements",
+      "suite": "parser",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.persistent_map_floor_keeps_its_snapshot",
+      "suite": "indexes",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.persistent_staging_matches_ordered_model_and_keeps_old_roots",
+      "suite": "storage",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.posix_group_sync_preserves_durability_and_propagates_errors",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.posix_io_reports_permission_and_open_errors",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.posix_io_round_trip_and_bounds",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.posix_short_read_and_disk_full_are_errors",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.pressure_trim_ignores_ttl",
+      "suite": "regressions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.program_parses_binds_and_rejects_maintenance_before_writing",
+      "suite": "transactions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.promote_delete_reclaims_payload",
+      "suite": "regressions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_c_configuration_enforces_limits_and_rejects_invalid_options",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_c_parameter_transport_respects_small_working_budget",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_cancel_and_deadline_interrupt_gate_wait",
+      "suite": "consistency",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_cancelled_and_expired_contexts_reject_mutations",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_config_cannot_be_bypassed_with_a_looser_request_context",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_context_distinguishes_deadline_and_cancellation",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_cpp_input_is_bounded_before_lexing",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_defaults_reject_excessive_depth_and_results",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_edge_work_budget_aborts_without_partial_results",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_limits_apply_to_direct_engine_reads",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_limits_apply_to_native_transaction_batches",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_limits_meter_tokens_parameters_and_copied_output",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_limits_reject_batch_before_publication",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_maintenance_and_index_build_honor_active_working_budget",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_million_edge_fanout_stops_at_work_budget",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_native_point_read_honors_configured_working_budget",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_output_budget_counts_small_empty_results_and_rolls_back_large_ones",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_parameter_size_cannot_wrap_platform_size_t",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_real_index_cursor_uses_small_workspace_on_large_bucket",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_staging_shares_unmodified_property_maps_but_meters_reads",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_workspace_leases_survive_context_destruction",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_workspace_rejections_preserve_current_and_peak",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_workspace_tightening_preserves_historical_peak",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.query_workspace_tracks_overlapping_and_moved_leases",
+      "suite": "limits",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.queued_request_cancels_and_close_times_out_without_freeing_snapshot",
+      "suite": "lifecycle",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.randomized_graph_matches_independent_model",
+      "suite": "model",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.reads_and_residency_do_not_change_logical_version",
+      "suite": "indexes",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.recovery_fault_inventory_covers_durable_phases",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.recovery_respects_hot_budget_after_uncheckpointed_trims",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.repeated_promote_delete_cycles_have_bounded_disk_usage",
+      "suite": "gc",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.request_cancel_before_start_applies_no_mutation",
+      "suite": "lifecycle",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.request_deadline_and_invalid_timeouts",
+      "suite": "lifecycle",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.result_budget_and_failed_trim_return_explicit_errors",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.retained_catalog_rejects_identity_extent_io_and_cancellation_failures",
+      "suite": "catalog",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.retained_catalog_scans_large_payload_with_bounded_reads",
+      "suite": "catalog",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.sequential_reader_bounds_reads_and_handles_short_io",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.sequential_reader_fallback_rejects_unreserved_large_file",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.small_transaction_on_large_graph_fits_bounded_workspace",
+      "suite": "transactions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.snapshot_blocks_writer_and_rejects_reentrant_write",
+      "suite": "consistency",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.snapshot_dsl_reads_one_view_and_rejects_mutation",
+      "suite": "consistency",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.snapshot_gate_wait_uses_database_timeout_before_acquisition",
+      "suite": "consistency",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.snapshot_wrong_thread_and_cumulative_budget_are_rejected",
+      "suite": "lifecycle",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.staged_index_budget_failure_preserves_wal_and_live_roots",
+      "suite": "transactions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.staging_reservations_release_scratch_and_outlive_request",
+      "suite": "storage",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.suspend_after_close_never_reports_success",
+      "suite": "lifecycle",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.suspend_rejects_new_work_until_resume",
+      "suite": "lifecycle",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.suspended_pressure_trim_preserves_query_rejection",
+      "suite": "lifecycle",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.transaction_delete_at_metadata_ceiling_reclaims_state",
+      "suite": "transactions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.transaction_final_metadata_overflow_preserves_state_and_wal",
+      "suite": "transactions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.transaction_overwrite_at_metadata_ceiling_commits_and_recovers",
+      "suite": "transactions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.transaction_temporary_metadata_growth_uses_workspace",
+      "suite": "transactions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.transaction_workspace_overflow_preserves_state_and_wal_near_metadata_limit",
+      "suite": "transactions",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.traversal_canonical_order_is_independent_of_insertion_and_shortest_path_wins",
+      "suite": "traversal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.traversal_cold_error_keeps_typed_failure_and_no_partial_paths",
+      "suite": "traversal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.traversal_documented_example_returns_real_paths_through_c",
+      "suite": "traversal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.traversal_explain_describes_paths_without_changing_projection_grammar",
+      "suite": "traversal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.traversal_inbound_paths_keep_stored_edge_orientation",
+      "suite": "traversal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.traversal_limit_counts_unique_nodes_after_cycles_and_duplicate_edges",
+      "suite": "traversal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.traversal_native_results_bound_paths_and_can_omit_them",
+      "suite": "traversal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.traversal_path_reconstruction_reuses_cold_records_without_promotion",
+      "suite": "traversal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.traversal_paths_choose_shortest_routes_and_actual_edges",
+      "suite": "traversal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.traversal_paths_honor_output_work_and_edge_budgets_without_partial_data",
+      "suite": "traversal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.traversal_paths_survive_cold_rebuild_and_reopen",
+      "suite": "traversal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.traversal_skips_dangling_endpoints_in_permissive_graphs",
+      "suite": "traversal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_accounting_work_does_not_rescan_per_record",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_adapts_to_held_and_native_workspace_limits",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_cancellation_after_publication_reports_only_durable_progress",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_cancellation_before_group_publication_keeps_hot_data",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_descriptors_use_written_bytes_without_rereads",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_full_flush_failure_never_publishes_cold_records",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_group_failure_preserves_hot_records_and_completed_progress",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_groups_durable_payloads_before_releasing_memory",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_large_graph_uses_bounded_workspace",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_later_group_sync_errors_preserve_durable_prefix",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_later_posix_flush_failure_keeps_completed_prefix",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_long_identity_properties_and_bounded_pages_reopen",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_low_budget_rejects_before_write",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_metadata_limit_preserves_hot_records",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_metadata_limit_retains_completed_group",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_oversized_next_candidate_preserves_prefix",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_rechecks_pin_and_version_after_group_sync",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_retries_smaller_group_for_large_first_candidate",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_target_and_stale_candidate_accounting_remain_exact",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_thrown_failure_retains_completed_progress",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_unsupported_disk_backend_rejects_without_writes",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.trim_zero_batch_selects_nothing",
+      "suite": "tiering",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.uncertain_wal_failure_fences_mutation_and_checkpoint",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.wal_bad_complete_frame_is_corruption_and_unchanged",
+      "suite": "wal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.wal_capacity_rejection_still_allows_checkpoint",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.wal_header_and_structural_corruption_do_not_repair",
+      "suite": "wal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.wal_large_batch_frame_boundaries_and_rotation",
+      "suite": "wal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.wal_recovers_since_initial_current_root",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.wal_rejects_empty_and_oversized_batches_before_writing",
+      "suite": "wal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.wal_replay_preserves_node_edge_modification_time",
+      "suite": "recovery",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.wal_replays_complete_transaction_groups",
+      "suite": "wal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.wal_sync_failure_returns_transaction_identity_and_fences",
+      "suite": "wal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.wal_tail_repair_sync_failure_fences_append",
+      "suite": "wal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.wal_transaction_every_byte_boundary",
+      "suite": "wal",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "cpp.write_all_retries_interrupts_and_partial_writes",
+      "suite": "io",
+      "owner": "",
+      "language": "cpp"
+    },
+    {
+      "id": "devtools.HTTPContracts.test_auth_host_methods_and_body_limits",
+      "suite": "local_runner",
+      "owner": "",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.HTTPContracts.test_chunked_body_and_slow_incomplete_request_are_bounded",
+      "suite": "local_runner",
+      "owner": "",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.HTTPContracts.test_cli_passes_quoted_query_as_data",
+      "suite": "local_runner",
+      "owner": "",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.HTTPContracts.test_denied_origin_cannot_mutate",
+      "suite": "local_runner",
+      "owner": "",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.HTTPContracts.test_disposable_reset_and_restart_are_empty_persistent_restart_retains",
+      "suite": "local_runner",
+      "owner": "",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.HTTPContracts.test_empty_media_types_reject_without_crashing_or_mutating",
+      "suite": "local_runner",
+      "owner": "",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.HTTPContracts.test_parallel_assets_do_not_compete_for_engine_admission",
+      "suite": "local_runner",
+      "owner": "",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.HTTPContracts.test_parameter_types_are_explicit_and_invalid_values_cannot_mutate",
+      "suite": "local_runner",
+      "owner": "",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.HTTPContracts.test_real_inspection_pages_and_conflicts",
+      "suite": "local_runner",
+      "owner": "",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.HTTPContracts.test_real_preset_matches_cli_and_edited_query_errors_are_typed",
+      "suite": "local_runner",
+      "owner": "",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.HTTPContracts.test_reset_invalidates_cursor_even_when_new_database_reaches_same_lsn",
+      "suite": "local_runner",
+      "owner": "",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.HTTPContracts.test_static_assets_are_real_app_and_cannot_escape_root",
+      "suite": "local_runner",
+      "owner": "",
+      "language": "devtools"
+    },
+    {
+      "id": "docs.ngql-advanced",
+      "suite": "examples",
+      "owner": "",
+      "language": "docs"
+    },
+    {
+      "id": "docs.ngql-basics",
+      "suite": "examples",
+      "owner": "",
+      "language": "docs"
+    },
+    {
+      "id": "docs.ngql-invalid-query",
+      "suite": "examples",
+      "owner": "",
+      "language": "docs"
+    },
+    {
+      "id": "docs.ngql-traversal-paths",
+      "suite": "examples",
+      "owner": "",
+      "language": "docs"
+    },
+    {
+      "id": "docs.playground-acl",
+      "suite": "examples",
+      "owner": "",
+      "language": "docs"
+    },
+    {
+      "id": "docs.playground-knowledge",
+      "suite": "examples",
+      "owner": "",
+      "language": "docs"
+    },
+    {
+      "id": "docs.playground-social",
+      "suite": "examples",
+      "owner": "",
+      "language": "docs"
+    },
+    {
+      "id": "docs.sample-lifecycle",
+      "suite": "docs-examples",
+      "owner": "T20",
+      "language": "docs"
+    },
+    {
+      "id": "docs.sample-opening",
+      "suite": "docs-examples",
+      "owner": "T20",
+      "language": "docs"
+    },
+    {
+      "id": "docs.swift-basics",
+      "suite": "examples",
+      "owner": "",
+      "language": "docs"
+    },
+    {
+      "id": "docs.swift-batch",
+      "suite": "examples",
+      "owner": "",
+      "language": "docs"
+    },
+    {
+      "id": "docs.swift-codable",
+      "suite": "examples",
+      "owner": "",
+      "language": "docs"
+    },
+    {
+      "id": "docs.swift-lifecycle",
+      "suite": "examples",
+      "owner": "",
+      "language": "docs"
+    },
+    {
+      "id": "docs.swift-parameters",
+      "suite": "examples",
+      "owner": "",
+      "language": "docs"
+    },
+    {
+      "id": "docs.swift-traversal",
+      "suite": "examples",
+      "owner": "",
+      "language": "docs"
+    },
+    {
+      "id": "docs.swift-typed-api",
+      "suite": "examples",
+      "owner": "",
+      "language": "docs"
+    },
+    {
+      "id": "docs.swiftui-lifecycle",
+      "suite": "examples",
+      "owner": "",
+      "language": "docs"
+    },
+    {
+      "id": "docs.value-fidelity",
+      "suite": "examples",
+      "owner": "",
+      "language": "docs"
+    },
+    {
+      "id": "package.SourcePackageContracts.test_debug_url_consumer_creates_and_reopens",
+      "suite": "source_package",
+      "owner": "",
+      "language": "package"
+    },
+    {
+      "id": "package.SourcePackageContracts.test_release_url_consumer_creates_and_reopens",
+      "suite": "source_package",
+      "owner": "",
+      "language": "package"
+    },
+    {
+      "id": "performance.GateContracts.test_above_ten_percent_fails_and_exact_boundary_passes",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_absolute_failed_baseline_rejected_even_with_passed_label",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_binary_and_manifest_tampering_are_rejected",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_build_stale_identity_is_rejected",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_candidate_compares_against_both_not_fastest_or_slowest_selected",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_collect_preserves_preflight_failure_and_never_builds",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_collect_runs_prebuilt_fixture_and_detects_dirty_end",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_complete_review_and_gate_allows_engine_revision_change",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_environment_and_runner_differences_reject_gate",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_explicit_approval_required_and_evidence_never_overwritten",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_headless_simulator_process_blocks_collection",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_incomplete_observation_or_hardware_identity_is_rejected",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_invalid_report_provenance_and_control_is_rejected",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_no_baseline_never_passes_regression",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_ordinary_collector_rejected_before_setup_by_gate_lock",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_pair_exact_ten_percent_passes",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_prepare_cannot_compile_during_a_measurement_window",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_prepare_rejects_dirty_and_preserves_failure",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_protocol_digest_excludes_engine_but_tracks_collector",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_real_subprocess_machine_lock_contention",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_repeatability_checks_both_directions_and_requires_same_revision",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_replay_and_overlapping_runs_are_rejected",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_tampered_report_and_manifest_rejected",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.GateContracts.test_thermal_cpu_throttling_and_unavailable_readings_rejected",
+      "suite": "GateContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_absolute_failed_baseline_is_rejected_before_comparison",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_budget_pass_and_breach",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_collection_source_changes_invalidate_retained_report",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_conflicting_run_metadata_is_rejected",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_failed_or_dirty_baseline_is_not_qualified",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_independent_process_tail_regressions_fail",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_instrumented_runs_cannot_qualify_even_if_relabeled",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_missing_protocol_or_mutation_samples_cannot_qualify",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_missing_provenance_and_recorded_failure_are_rejected",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_missing_sample_and_workload_fail_closed",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_nearest_rank_and_invalid_samples",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_new_operation_limits_have_exact_boundaries",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_regression_and_environment_mismatch",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_resource_build_flag_does_not_change_timing_build",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_resource_cli_collects_fixed_protocol_without_budget_evaluation",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_resource_cli_rejects_baseline_before_collection",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_resource_failures_retain_raw_output_and_report",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_resource_validator_is_in_source_digest",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_smoke_and_simulator_do_not_qualify_hardware",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_source_digest_tracks_benchmark_code_without_private_notes",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_timeout_retains_output_and_continues_other_workloads",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_unapproved_or_invalid_budgets_fail_closed",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.PerformanceContracts.test_under_sampled_or_wrong_scale_cannot_pass",
+      "suite": "PerformanceContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceBudgetContracts.test_all_boundaries_have_inclusive_caps_and_earlier_breaches_fail",
+      "suite": "ResourceBudgetContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceBudgetContracts.test_dirty_foreign_incomplete_and_historical_reports_fail_closed",
+      "suite": "ResourceBudgetContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceBudgetContracts.test_distribution_revalidates_before_applying_inclusive_caps",
+      "suite": "ResourceBudgetContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceBudgetContracts.test_distribution_verification_or_provenance_failure_prevents_gate",
+      "suite": "ResourceBudgetContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceBudgetContracts.test_known_allocation_breach_fails_even_with_other_unavailable_snapshot",
+      "suite": "ResourceBudgetContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceBudgetContracts.test_missing_snapshot_or_mismatched_totals_fail",
+      "suite": "ResourceBudgetContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceBudgetContracts.test_unavailable_allocation_does_not_become_zero",
+      "suite": "ResourceBudgetContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_allocation_observations_require_possible_call_and_byte_counts",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_dataset_payload_and_edge_metadata_cannot_change_workload_shape",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_disk_file_counts_cannot_discard_nonempty_files",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_disk_schema_rejects_partial_or_invented_availability",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_disk_totals_stages_and_unavailable_measurements",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_environment_requires_identifiable_host_and_simulator",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_instrumented_or_historical_data_cannot_be_budget_pass",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_invalid_peak_counts_and_missing_phases_fail_closed",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_malformed_containers_raise_validation_errors",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_mutation_phase_shape_counts_and_protocol_cannot_be_downgraded",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_phase_and_disk_summary_keeps_units_and_does_not_qualify",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_phase_samples_follow_exact_resource_protocol",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_protocol_provenance_and_workload_identity_fail_closed",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_raw_sample_counts_and_allocation_calls_match_phase_evidence",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_raw_timings_and_calls_are_finite_nonnegative_numbers",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_separate_workspace_probes_report_admission_failure_without_qualifying_timings",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_version_two_mutation_phases_are_diagnostic_and_version_one_stays_readable",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_workspace_observation_requires_a_valid_effective_ceiling",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceMeasurementContracts.test_workspace_without_observed_contexts_is_unavailable",
+      "suite": "ResourceMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.SwiftMeasurementContracts.test_collector_retains_failure_output_and_stops",
+      "suite": "SwiftMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.SwiftMeasurementContracts.test_collector_retains_timeout_and_invalid_output",
+      "suite": "SwiftMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.SwiftMeasurementContracts.test_corrupt_samples_and_protocol_fail_closed",
+      "suite": "SwiftMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.SwiftMeasurementContracts.test_expanded_diagnostics_summarize_processes_without_native_caps",
+      "suite": "SwiftMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.SwiftMeasurementContracts.test_expanded_missing_wrong_contract_and_nonfinite_metrics_fail",
+      "suite": "SwiftMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.SwiftMeasurementContracts.test_expanded_protocol_digest_rejects_mismatch",
+      "suite": "SwiftMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.SwiftMeasurementContracts.test_incomplete_or_conflicting_evidence_has_no_summary",
+      "suite": "SwiftMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.SwiftMeasurementContracts.test_metadata_command_failure_retains_report",
+      "suite": "SwiftMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.SwiftMeasurementContracts.test_operation_summary_distinguishes_pooled_samples_from_process_tails",
+      "suite": "SwiftMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.SwiftMeasurementContracts.test_summary_preserves_lanes_and_does_not_qualify",
+      "suite": "SwiftMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "sample.SampleAcceptanceContracts.test_failed_ui_case_cannot_pass",
+      "suite": "sample-harness",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleAcceptanceContracts.test_named_ui_case_must_match_inventory",
+      "suite": "sample-harness",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleAcceptanceContracts.test_passed_named_case_is_recorded",
+      "suite": "sample-harness",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleAcceptanceContracts.test_skipped_ui_case_cannot_pass",
+      "suite": "sample-harness",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleModelTests.testCancelledAcquiredOpenClosesWithoutInheritingCancellation",
+      "suite": "sample-model",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleModelTests.testCancelledTraversalKeepsLastResultAndAllowsNextRead",
+      "suite": "sample-model",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleModelTests.testCloseDrainTimeoutRetainsOwnerUntilRetry",
+      "suite": "sample-model",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleModelTests.testCloseDuringOpenDrainsOwnershipAndAllowsAnotherOwner",
+      "suite": "sample-model",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleModelTests.testFailedCloseAllowsRecoveryAndAcknowledgement",
+      "suite": "sample-model",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleModelTests.testFailedSuspendKeepsResumeAvailableAndRecovers",
+      "suite": "sample-model",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleModelTests.testFirstInstallEditsTypedPathsAndReopenWithoutReseeding",
+      "suite": "sample-model",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleModelTests.testPressureAndBackgroundForegroundPreserveGraph",
+      "suite": "sample-model",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleModelTests.testRejectedTransactionShowsErrorAndDoesNotPublishPartialWrite",
+      "suite": "sample-model",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleModelTests.testSuspendDrainTimeoutKeepsResumeAvailable",
+      "suite": "sample-model",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleModelTests.testUnavailableStorageIsVisibleAndNeverReplaced",
+      "suite": "sample-model",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleModelTests.testUserIdentifiersAreQuotedRatherThanExecuted",
+      "suite": "sample-model",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleUITests.testEditPathsErrorPressureAndReopen",
+      "suite": "sample-ui",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleUITests.testUnavailableStorageIsVisible",
+      "suite": "sample-ui",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "swift.GraphDBKitTests.testAsyncConcurrency",
+      "suite": "GraphDBKitTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.GraphDBKitTests.testFluentTraversalAndInbound",
+      "suite": "GraphDBKitTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.GraphDBKitTests.testMemoryTrimming",
+      "suite": "GraphDBKitTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.GraphDBKitTests.testNGQLParametersExplainAndRebuild",
+      "suite": "GraphDBKitTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.GraphDBKitTests.testPersistenceAndRecovery",
+      "suite": "GraphDBKitTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.GraphDBKitTests.testTransactionsAndDeletions",
+      "suite": "GraphDBKitTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.GraphDBKitTests.testTypedInspectionPages",
+      "suite": "GraphDBKitTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.GraphDBKitTests.testTypedOperationsAndCodable",
+      "suite": "GraphDBKitTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.KnownRegressionTests.testDoubleRetainsPrecision",
+      "suite": "KnownRegressionTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.KnownRegressionTests.testIntegerOneRetainsType",
+      "suite": "KnownRegressionTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.KnownRegressionTests.testIntegerZeroRetainsType",
+      "suite": "KnownRegressionTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.KnownRegressionTests.testPointReadPropagatesColdStorageError",
+      "suite": "KnownRegressionTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.LifecycleTests.testAlreadyCancelledAsyncCheckpointDoesNotRun",
+      "suite": "LifecycleTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.LifecycleTests.testAlreadyCancelledAsyncMutationAppliesNothing",
+      "suite": "LifecycleTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.LifecycleTests.testAsyncCheckpointReportsIOFailure",
+      "suite": "LifecycleTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.LifecycleTests.testCancellationDuringSnapshotBodyIsReportedAfterItReturns",
+      "suite": "LifecycleTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.LifecycleTests.testCheckpointOverloadsBypassQueryWorkspaceAndSurviveReopen",
+      "suite": "LifecycleTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.LifecycleTests.testExplicitCloseReleasesDirectoryAndRejectsQueries",
+      "suite": "LifecycleTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.LifecycleTests.testLifecycleEventsAreOrderedAndPressureReclaimsPayloads",
+      "suite": "LifecycleTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.LifecycleTests.testReadDecodeChecksCancellationWithoutMaskingCommittedOutcomes",
+      "suite": "LifecycleTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.LifecycleTests.testSnapshotRejectsDatabaseReentrancyAndEscapedUse",
+      "suite": "LifecycleTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.MaintenanceTests.testOnlineBackupAndOfflineRestorePreserveGraph",
+      "suite": "maintenance",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.QueryLimitTests.testConfiguredDepthAndResultLimitsReachCore",
+      "language": "swift",
+      "suite": "QueryLimitTests",
+      "owner": ""
+    },
+    {
+      "id": "swift.QueryLimitTests.testIdentifiersContainingCommentMarkersRemainLiteral",
+      "language": "swift",
+      "suite": "QueryLimitTests",
+      "owner": ""
+    },
+    {
+      "id": "swift.QueryLimitTests.testInvalidQueryConfigurationThrowsBeforeOpening",
+      "language": "swift",
+      "suite": "QueryLimitTests",
+      "owner": ""
+    },
+    {
+      "id": "swift.TypedBoundaryTests.testByteDistinctUnicodeKeysArePreservedRawAndRejectedTyped",
+      "suite": "TypedBoundaryTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.TypedBoundaryTests.testCodableRejectsNestedPropertiesBeforeMutation",
+      "suite": "TypedBoundaryTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.TypedBoundaryTests.testCodableRejectsUnsignedOverflowArraysAndNonfiniteValues",
+      "suite": "TypedBoundaryTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.TypedBoundaryTests.testCodableScalarEncoderPreservesIntegralDoubles",
+      "suite": "TypedBoundaryTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.TypedBoundaryTests.testEmbeddedNulIdentityCannotAliasPrefix",
+      "suite": "TypedBoundaryTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.TypedBoundaryTests.testFailedBatchAndOptionsLeaveNoPartialWrites",
+      "suite": "TypedBoundaryTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.TypedBoundaryTests.testNonfiniteFiltersAreRejected",
+      "suite": "TypedBoundaryTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.TypedBoundaryTests.testProjectionContainersCannotBeMistakenForScalarTags",
+      "suite": "TypedBoundaryTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.TypedBoundaryTests.testScalarKindsAndExtremesSurviveColdRead",
+      "suite": "TypedBoundaryTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.TypedBoundaryTests.testTransactionRejectsInjectedIdentifiersAtomically",
+      "suite": "TypedBoundaryTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.TypedBoundaryTests.testTraversalBuilderCopiesAreIndependent",
+      "suite": "TypedBoundaryTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.TypedBoundaryTests.testTypedBindingsProjectionAndMutationReceipt",
+      "suite": "TypedBoundaryTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.TypedBoundaryTests.testTypedEdgesAndActualInboundPaths",
+      "suite": "TypedBoundaryTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "swift.TypedBoundaryTests.testVersionAndDecodeErrorsAreNotEmptySuccess",
+      "suite": "TypedBoundaryTests",
+      "owner": "",
+      "language": "swift"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_process_parser_preserves_names_and_rejects_bad_cpu",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_same_name_and_reused_pid_are_not_owned",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_cpu_delta_is_not_lifetime_cpu_or_machine_percent",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_pid_reuse_and_phase_boundaries_do_not_bridge_deltas",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_failed_samples_and_large_gaps_are_visible",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_monitor_retains_sampler_errors_and_stops",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_registration_checks_executable_not_just_pid",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_ownership_discovered_mid_interval_is_reported_not_misattributed",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_native_summary_rejects_wrong_dataset_and_sample_count",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_summary_reports_spreads_without_qualification",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_diagnostic_kind_is_rejected_even_with_forged_pass_flags",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_cli_exposes_diagnose_but_requires_idle_attestation",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_invalid_prepared_retains_unqualified_report_without_sampling",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_interrupted_idle_is_retained_without_child_launch",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_busy_after_idle_prevents_native_launch",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_six_process_lifecycle_preserves_raw_outputs_and_stays_unqualified",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_sigterm_retains_incomplete_idle_report",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_signal_handler_unwinds_child_cleanup_and_restores_handlers",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.DiagnosticContracts.test_timeout_terminates_disposable_child",
+      "suite": "DiagnosticContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.SwiftMeasurementContracts.test_approved_swift_caps_have_inclusive_boundaries",
+      "suite": "SwiftMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.SwiftMeasurementContracts.test_swift_caps_do_not_hide_independent_process_tails",
+      "suite": "SwiftMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.SwiftMeasurementContracts.test_swift_budget_rejects_dirty_foreign_historical_and_unapproved_evidence",
+      "suite": "SwiftMeasurementContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceBudgetContracts.test_linked_app_caps_are_inclusive_after_reverification",
+      "suite": "ResourceBudgetContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceBudgetContracts.test_linked_app_mismatch_or_unapproved_caps_cannot_pass",
+      "suite": "ResourceBudgetContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceBudgetContracts.test_approved_extension_limits_reject_invalid_scope_and_values",
+      "suite": "ResourceBudgetContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceBudgetContracts.test_linked_verifier_rehashes_real_files_and_recalculates_deltas",
+      "suite": "ResourceBudgetContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceBudgetContracts.test_linked_verifier_rejects_foreign_incomplete_and_mismatched_metadata",
+      "suite": "ResourceBudgetContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceBudgetContracts.test_linked_verifier_rejects_symlinks_and_wrong_binary_platform",
+      "suite": "ResourceBudgetContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "performance.ResourceBudgetContracts.test_linked_verifier_rejects_missing_consumed_project_or_nova_flag",
+      "suite": "ResourceBudgetContracts",
+      "owner": "T21",
+      "language": "performance"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_missing_evidence_is_explicit_no_go",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_complete_native_receipt_retains_hashes_without_certifying_release",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_foreign_revision_cannot_supply_candidate_evidence",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_skipped_required_check_blocks_release",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_omitted_required_check_cannot_be_hidden_by_passing_summary",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_changed_raw_evidence_is_rejected",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_stale_documentation_hash_blocks_release",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_changed_example_blocks_documentation_parity",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_missing_watch_slice_blocks_artifact_gate",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_existing_report_is_never_overwritten",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_evidence_path_cannot_escape_its_index_directory",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_candidate_identity_is_captured_before_validator_side_effects",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_deferred_quality_gate_cannot_be_waived_by_an_input_receipt",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_changed_receipt_is_rejected_even_when_raw_log_is_unchanged",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_dirty_candidate_is_no_go",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_non_object_receipt_retains_rejected_gate",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_non_object_index_retains_rejected_gate",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
+      "id": "devtools.ReleasePreflightContracts.test_non_object_apple_manifest_retains_rejected_gate",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 2,
+  "ok": true,
+  "data": {
+    "results": [
+      {
+        "ok": true,
+        "mutation": "upsert_node"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_node"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_node"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_edge"
+      },
+      {
+        "ok": true,
+        "mutation": "upsert_edge"
+      },
+      {
+        "nodes": [
+          {
+            "kind": "node",
+            "id": "r:admin",
+            "label": "Role",
+            "properties": {
+              "name": {
+                "type": "string",
+                "value": "Administrator"
+              }
+            },
+            "last_read_ms": "<timestamp-ms>",
+            "last_modified_ms": "<timestamp-ms>",
+            "version": 1
+          },
+          {
+            "kind": "node",
+            "id": "res:database",
+            "label": "Resource",
+            "properties": {
+              "name": {
+                "type": "string",
+                "value": "Production DB"
+              }
+            },
+            "last_read_ms": "<timestamp-ms>",
+            "last_modified_ms": "<timestamp-ms>",
+            "version": 1
+          }
+        ],
+        "paths": [
+          {
+            "nodes": [
+              {
+                "kind": "node",
+                "id": "u:alice",
+                "label": "User",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "value": "Alice"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "r:admin",
+                "label": "Role",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "value": "Administrator"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ],
+            "edges": [
+              {
+                "kind": "edge",
+                "id": "7:u:alice8:HAS_ROLE7:r:admin",
+                "type": "HAS_ROLE",
+                "from": "u:alice",
+                "to": "r:admin",
+                "properties": {},
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ]
+          },
+          {
+            "nodes": [
+              {
+                "kind": "node",
+                "id": "u:alice",
+                "label": "User",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "value": "Alice"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "r:admin",
+                "label": "Role",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "value": "Administrator"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "node",
+                "id": "res:database",
+                "label": "Resource",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "value": "Production DB"
+                  }
+                },
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ],
+            "edges": [
+              {
+                "kind": "edge",
+                "id": "7:u:alice8:HAS_ROLE7:r:admin",
+                "type": "HAS_ROLE",
+                "from": "u:alice",
+                "to": "r:admin",
+                "properties": {},
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              },
+              {
+                "kind": "edge",
+                "id": "7:r:admin6:GRANTS12:res:database",
+                "type": "GRANTS",
+                "from": "r:admin",
+                "to": "res:database",
+                "properties": {},
+                "last_read_ms": "<timestamp-ms>",
+                "last_modified_ms": "<timestamp-ms>",
+                "version": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "receipt": {
+    "transactionId": "<transaction-id>",
+    "committedLSN": 7
+  }
+}

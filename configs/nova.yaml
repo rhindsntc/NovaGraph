@@ -1,0 +1,41 @@
+# Illustrative configuration only. Neither Nova nor the dev CLI loads this file.
+# Configure enforced request limits with C++ QueryOptions / C GraphDBQueryOptions / Swift GraphQueryOptions.
+database:
+  path: /tmp/nova-graph
+  mode: embedded
+
+tiering:
+  inactivity_window_seconds: 600
+  sweep_interval_seconds: 30
+  sweep_batch_size: 4096
+  strict_activity_on_read: true
+
+storage:
+  cold_store: file_records
+  cold_directory: cold
+  future_options:
+    - rocksdb
+    - nova_custom_file_format
+
+indexes:
+  maintain_label_indexes: true
+  maintain_property_indexes: true
+  maintain_outbound_adjacency: true
+
+limits:
+  default_find_limit: 100
+  default_walk_depth: 1
+  default_walk_limit: 100
+  max_walk_depth: 16
+  max_result_objects: 10000
+  max_expanded_edges: 100000
+  working_bytes: 16777216
+  result_bytes: 16777216
+  timeout_ms: 5000
+  max_statements: 1000
+  batch_bytes: 16777216
+
+dev_query:
+  enabled: true
+  host: 127.0.0.1
+  port: 8080

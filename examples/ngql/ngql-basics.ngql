@@ -1,0 +1,7 @@
+create index on Person(email);
+upsert node Person ada set name="Ada", email="ada@example.com";
+upsert node Person grace set name="Grace";
+upsert edge FOLLOWS ada -> grace set since=2026;
+get node ada;
+find nodes Person where email = "ada@example.com" limit 10;
+walk from ada over FOLLOWS depth 2 limit 25;

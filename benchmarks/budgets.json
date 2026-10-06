@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "review": {
+    "status": "approved",
+    "date": "2026-09-28",
+    "source": "User approval of the T21 budget and controlled-gate proposal; physical qualification remains deferred"
+  },
+  "minimumRuns": 20,
+  "minimumSamples": 100,
+  "regressionFraction": 0.1,
+  "classes": {
+    "watch": {
+      "nodes": 250,
+      "hotReadUs": 10000,
+      "coldReadUs": 50000,
+      "checkpointUs": 500000,
+      "openUs": 500000,
+      "peakRSSBytes": 67108864,
+      "trimUs": 2000000,
+      "novaTraversalUs": 20000,
+      "singleMutationUs": 50000,
+      "batchMutationUs": 250000,
+      "diskLogicalBytes": 4194304,
+      "diskAllocatedBytes": 16777216,
+      "diskFiles": 2000
+    },
+    "phone": {
+      "nodes": 1000,
+      "hotReadUs": 5000,
+      "coldReadUs": 20000,
+      "checkpointUs": 1000000,
+      "openUs": 1000000,
+      "peakRSSBytes": 134217728,
+      "trimUs": 5000000,
+      "novaTraversalUs": 10000,
+      "singleMutationUs": 25000,
+      "batchMutationUs": 100000,
+      "diskLogicalBytes": 16777216,
+      "diskAllocatedBytes": 50331648,
+      "diskFiles": 8000
+    },
+    "desktop": {
+      "nodes": 10000,
+      "hotReadUs": 2000,
+      "coldReadUs": 10000,
+      "checkpointUs": 2000000,
+      "openUs": 2000000,
+      "peakRSSBytes": 536870912,
+      "trimUs": 20000000,
+      "novaTraversalUs": 5000,
+      "singleMutationUs": 10000,
+      "batchMutationUs": 50000,
+      "diskLogicalBytes": 134217728,
+      "diskAllocatedBytes": 402653184,
+      "diskFiles": 70000
+    }
+  },
+  "unreviewedLimits": [],
+  "noisePolicy": "Retain every run. A failed comparison remains failed; collect a new complete independent run after investigating environmental noise. Never replace the baseline automatically. Compare medians and p95 only on identical hardware/OS/toolchain/protocol.",
+  "protocolVersion": 2,
+  "distribution": {
+    "archiveBytes": 12582912,
+    "bundleLogicalBytes": 41943040,
+    "scope": "complete eight-slice ZIP; extracted logical bundle excluding artifact-manifest.json; not installed app size"
+  },
+  "units": {
+    "timing": "microseconds",
+    "memory": "bytes",
+    "disk": "bytes",
+    "files": "count",
+    "distribution": "bytes"
+  },
+  "swift": {
+    "version": 1,
+    "review": {
+      "status": "approved",
+      "date": "2026-10-01",
+      "source": "User confirmation of concrete Swift fixture and matched linked-app caps"
+    },
+    "platform": "macos",
+    "protocolDigest": "b5d9550d26d581d8da1b79efd71a8ab9095f66313839f78e126c5626d8913d4a",
+    "payloadBytes": [
+      64,
+      512,
+      1024
+    ],
+    "metrics": {
+      "swiftTypedUs": 2000,
+      "swiftColdUs": 10000,
+      "swiftSingleMutationUs": 10000,
+      "swiftBatch250Us": 50000,
+      "swiftTraversalUs": 5000,
+      "swiftAsyncReadUs": 2000,
+      "swiftAsyncTraversalUs": 5000,
+      "swiftAsyncMutationUs": 10000
+    },
+    "scope": "Existing macOS Release Swift fixture; pooled p95 and p95 across 20 independent-process p95s, at every payload size; not native 10k graph or physical-device qualification"
+  },
+  "linkedApp": {
+    "version": 1,
+    "review": {
+      "status": "approved",
+      "date": "2026-10-01",
+      "source": "User confirmation of concrete Swift fixture and matched linked-app caps"
+    },
+    "platforms": [
+      "macos",
+      "ios"
+    ],
+    "bundleLogicalBytes": 2097152,
+    "scope": "Each matched minimal SwiftUI baseline/Nova arm64 Release app pair; stripped unsigned uncompressed logical bundle contribution; not download size or physical-device qualification",
+    "protocolDigest": "f880e643d27ea6df78dfc79af3fdf707918b009c2e5f0c658bec277ec1febddc"
+  }
+}

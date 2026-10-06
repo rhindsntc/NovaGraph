@@ -1,0 +1,12 @@
+create index on Person(email);
+upsert node Person user:ada set name="Ada Lovelace", email="ada@nova.io", role="Architect";
+upsert node Person user:grace set name="Grace Hopper", email="grace@nova.io", role="Compiler Lead";
+upsert node Person user:margaret set name="Margaret Hamilton", email="margaret@nova.io", role="Apollo Lead";
+upsert node Person user:linus set name="Linus Torvalds", email="linus@nova.io", role="Kernel Lead";
+
+upsert edge FOLLOWS user:ada -> user:grace set since=2024;
+upsert edge FOLLOWS user:grace -> user:margaret set since=2025;
+upsert edge COLLABORATES user:ada -> user:margaret;
+upsert edge FOLLOWS user:margaret -> user:linus;
+
+walk from user:ada over FOLLOWS depth 2 limit 10 paths;

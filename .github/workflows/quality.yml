@@ -1,0 +1,116 @@
+name: quality
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "43 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+# Existing strict suites only. Fuzz/model/soak and release nightly qualification
+# remain separate work; a scheduled sanitizer pass does not satisfy those gates.
+jobs:
+  native-asan-ubsan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CC: clang
+      CXX: clang++
+      ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+      UBSAN_OPTIONS: halt_on_error=1:print_stacktrace=1
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record source and toolchain
+        run: |
+          set -euo pipefail
+          mkdir -p build/quality
+          { git rev-parse HEAD; uname -a; clang++ --version; cmake --version; } 2>&1 | tee build/quality/environment.log
+      - name: Build and run strict native ASan and UBSan suites
+        run: |
+          set -euo pipefail
+          cmake -S cpp -B build/quality/native-asan-ubsan -DCMAKE_BUILD_TYPE=Debug -DNOVA_STRICT_REGRESSIONS=ON -DNOVA_TEST_TIMEOUT=180 -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined" 2>&1 | tee build/quality/configure.log
+          cmake --build build/quality/native-asan-ubsan --parallel 4 2>&1 | tee build/quality/build.log
+          ctest --test-dir build/quality/native-asan-ubsan --output-on-failure --output-junit "$PWD/build/quality/native-asan-ubsan/results.xml" 2>&1 | tee build/quality/tests.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quality-native-asan-ubsan
+          retention-days: 14
+          if-no-files-found: error
+          path: |
+            build/quality/*.log
+            build/quality/native-asan-ubsan/CMakeCache.txt
+            build/quality/native-asan-ubsan/results.xml
+            build/quality/native-asan-ubsan/Testing/Temporary/
+
+  native-tsan:
+    runs-on: macos-15
+    timeout-minutes: 30
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
+      CC: clang
+      CXX: clang++
+      TSAN_OPTIONS: halt_on_error=1
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record source and toolchain
+        run: |
+          set -euo pipefail
+          mkdir -p build/quality
+          { git rev-parse HEAD; uname -a; xcodebuild -version; xcrun clang++ --version; cmake --version; } 2>&1 | tee build/quality/environment.log
+      - name: Build and run strict native TSan suites
+        run: |
+          set -euo pipefail
+          cmake -S cpp -B build/quality/native-tsan -DCMAKE_BUILD_TYPE=Debug -DNOVA_STRICT_REGRESSIONS=ON -DNOVA_TEST_TIMEOUT=180 -DCMAKE_CXX_FLAGS="-fsanitize=thread -fno-omit-frame-pointer" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=thread" 2>&1 | tee build/quality/configure.log
+          cmake --build build/quality/native-tsan --parallel 4 2>&1 | tee build/quality/build.log
+          ctest --test-dir build/quality/native-tsan --output-on-failure --output-junit "$PWD/build/quality/native-tsan/results.xml" 2>&1 | tee build/quality/tests.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quality-native-tsan
+          retention-days: 14
+          if-no-files-found: error
+          path: |
+            build/quality/*.log
+            build/quality/native-tsan/CMakeCache.txt
+            build/quality/native-tsan/results.xml
+            build/quality/native-tsan/Testing/Temporary/
+
+  swift-sanitizers:
+    runs-on: macos-15
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        sanitizer: [address, thread]
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
+      NOVA_STRICT_REGRESSIONS: "1"
+      # The tested Apple sanitizer runtime does not support leak detection.
+      # This setting applies only to Apple jobs; Linux ASan retains leak checks.
+      ASAN_OPTIONS: detect_leaks=0:halt_on_error=1
+      TSAN_OPTIONS: halt_on_error=1
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record source and toolchain
+        run: |
+          set -euo pipefail
+          mkdir -p build/quality
+          { git rev-parse HEAD; uname -a; xcodebuild -version; swift --version; xcrun clang++ --version; } 2>&1 | tee build/quality/environment.log
+      - name: Run strict Swift and compiled C++ boundary tests
+        run: |
+          set -euo pipefail
+          swift test --scratch-path build/quality/swift-${{ matrix.sanitizer }} --sanitize ${{ matrix.sanitizer }} --jobs 4 2>&1 | tee build/quality/tests.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quality-swift-${{ matrix.sanitizer }}
+          retention-days: 14
+          if-no-files-found: error
+          path: build/quality/*.log
