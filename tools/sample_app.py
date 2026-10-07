@@ -29,13 +29,27 @@ def validate_results(summary, tree, expected):
 def run(command, log, cwd=ROOT, timeout=900):
     with log.open('w') as stream:
         result=subprocess.run([str(arg) for arg in command],cwd=cwd,stdout=stream,stderr=subprocess.STDOUT,timeout=timeout)
-    if result.returncode:raise ValueError(f'command failed; see {log}')
-    return log.read_text()
+    output = log.read_text()
+    if result.returncode:
+        lines = output.splitlines()
+        errors = [line for line in lines if 'error:' in line.lower()]
+        details = '\n'.join(dict.fromkeys(errors[-10:] + lines[-20:]))[-12_000:]
+        raise ValueError(f'command failed with exit code {result.returncode}; see {log}\n{details}')
+    return output
+
+def select_ios_runtime(runtimes, version=None):
+    available = [r for r in runtimes if r.get('isAvailable') and r['name'].startswith('iOS ')
+                 and (version is None or r['version'] == version)]
+    if not available:
+        requested = f' {version}' if version else ''
+        raise ValueError(f'no installed iOS simulator runtime{requested}; qualification remains unavailable')
+    return max(available, key=lambda r: tuple(map(int, r['version'].split('.'))))
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output',required=True,type=Path)
     parser.add_argument('--platforms',nargs='+',choices=['macos','ios'],default=['macos','ios'])
+    parser.add_argument('--ios-runtime', help='Exact installed iOS runtime version; defaults to the latest available')
     args=parser.parse_args();out=args.output.resolve()
     if out.exists():parser.error('output must be a new directory; choose a new path for each acceptance run')
     out.mkdir(parents=True);owned=None
@@ -54,9 +68,7 @@ def main():
                 destination='platform=macOS,arch='+os.uname().machine;scheme='NovaGraphApp_macOS';extra=[]
             else:
                 runtimes=json.loads(run(['xcrun','simctl','list','runtimes','-j'],logs/'runtimes.log'))['runtimes']
-                available=[r for r in runtimes if r.get('isAvailable') and r['name'].startswith('iOS ')]
-                if not available:raise ValueError('no installed iOS simulator runtime; qualification remains unavailable')
-                runtime=max(available,key=lambda r:tuple(map(int,r['version'].split('.'))))
+                runtime=select_ios_runtime(runtimes,args.ios_runtime)
                 types=[t for t in runtime['supportedDeviceTypes'] if t['name'].startswith('iPhone')]
                 if not types:raise ValueError('installed iOS runtime has no iPhone simulator type')
                 owned=run(['xcrun','simctl','create','Nova sample '+uuid.uuid4().hex[:8],types[0]['identifier'],runtime['identifier']],logs/'create.log').strip()

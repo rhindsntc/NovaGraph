@@ -2360,6 +2360,24 @@
       "language": "performance"
     },
     {
+      "id": "sample.SampleAcceptanceContracts.test_command_failure_reports_exit_code_and_log_error",
+      "suite": "sample-harness",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleAcceptanceContracts.test_pinned_runtime_is_selected_instead_of_latest",
+      "suite": "sample-harness",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
+      "id": "sample.SampleAcceptanceContracts.test_missing_or_unavailable_pinned_runtime_cannot_fall_back",
+      "suite": "sample-harness",
+      "owner": "T20",
+      "language": "sample"
+    },
+    {
       "id": "sample.SampleAcceptanceContracts.test_failed_ui_case_cannot_pass",
       "suite": "sample-harness",
       "owner": "T20",

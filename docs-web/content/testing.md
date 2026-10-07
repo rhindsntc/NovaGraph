@@ -61,7 +61,11 @@ Executable examples compile the Swift API and lifecycle snippets, compile the Sw
 
 `make apple-artifact-test` checks artifact checksums, matrix rules, runtime metadata and archive contracts. A built slice alone does not establish runtime support. See [compatibility](compatibility.md).
 
-`make sample-app-test` executes the application-owner suite and acceptance-harness contracts. `python3 tools/sample_app.py --output build/sample-app-acceptance` builds and launches the macOS and iOS simulator sample, verifies test inventories and exports screenshots. Use a new output directory. This harness creates a disposable simulator; it does not install on physical devices. A separate [manual physical-device smoke test](../../examples/NovaGraphApp/README.md#physical-device-smoke-test) passed on iPhone 17 Pro Max / iOS 27.0 at source revision `e42262f` in Debug on 2026-10-06, covering graph/query, edit persistence, background/return and manual trim. It is maintainer-reported evidence, not an automated harness result or device performance qualification. See the [sample guide](../../examples/NovaGraphApp/README.md).
+`make sample-app-test` executes the application-owner suite and acceptance-harness contracts. `python3 tools/sample_app.py --output build/sample-app-acceptance` builds and launches the macOS and iOS simulator sample, verifies test inventories and exports screenshots. Use a new output directory. Failed subprocesses report their exit code and a bounded excerpt of errors and trailing log lines directly in command output; the complete logs and any produced result bundles remain in the output directory for inspection.
+
+Apple artifact candidate and sample application workflows are not run by CI. The local packaging, model, contract and UI acceptance tools remain available. To select an exact installed simulator runtime, pass `--ios-runtime VERSION`; an unavailable requested runtime fails the run. Without this option, local runs use the latest installed iOS runtime.
+
+This harness creates a disposable simulator; it does not install on physical devices. A separate [manual physical-device smoke test](../../examples/NovaGraphApp/README.md#physical-device-smoke-test) passed on iPhone 17 Pro Max / iOS 27.0 at source revision `e42262f` in Debug on 2026-10-06, covering graph/query, edit persistence, background/return and manual trim. It is maintainer-reported evidence, not an automated harness result or device performance qualification. See the [sample guide](../../examples/NovaGraphApp/README.md).
 
 ## Local sanitizer checks
 

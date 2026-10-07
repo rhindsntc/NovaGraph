@@ -49,7 +49,7 @@ Receipts are **attestations from trusted test producers**, not authenticated pro
 
 ## Apple artifacts and final review
 
-`--apple-bundle` reuses the existing complete bundle verifier: slice matrix, file hashes, public headers, C symbols, native object platform/deployment records and runtime qualification. Missing watchOS slices, foreign candidate/version, dirty artifacts and incomplete minimum-runtime/device qualification block acceptance. A manifest alone is not enough; actual bundled files must be available. Validation requires the Apple inspection tools used by the artifact workflow.
+`--apple-bundle` reuses the existing complete bundle verifier: slice matrix, file hashes, public headers, C symbols, native object platform/deployment records and runtime qualification. Missing watchOS slices, foreign candidate/version, dirty artifacts and incomplete minimum-runtime/device qualification block acceptance. A manifest alone is not enough; actual bundled files must be available. Validation requires the Apple inspection tools used by the local artifact packaging tools.
 
 The tool is a local preparation step. Hosted installation, platform/runtime qualification, sustained resource tests, full quality nightlies, release/tag/site synchronization and rollback/final publication review remain required. Public-source availability and production qualification are separate decisions. See [compatibility](compatibility.md), [testing](testing.md) and the repository's releasing checklist before preparing an experimental publication.
 

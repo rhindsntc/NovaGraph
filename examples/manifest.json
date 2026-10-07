@@ -85,7 +85,7 @@
     },
     {
       "id": "swift-lifecycle",
-      "path": "examples/Lifecycle/Sources/Lifecycle/main.swift",
+      "path": "examples/Lifecycle/Sources/Lifecycle/LifecycleExample.swift",
       "language": "swift",
       "mode": "run",
       "setupGroup": "swift-lifecycle",
