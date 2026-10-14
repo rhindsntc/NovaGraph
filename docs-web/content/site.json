@@ -97,6 +97,17 @@
       ]
     },
     {
+      "id": "novacontext",
+      "categoryId": "apple-integration",
+      "source": "docs-web/content/novacontext.md",
+      "snippetIds": [],
+      "relatedIds": [
+        "swiftui-lifecycle",
+        "graph-database",
+        "compatibility"
+      ]
+    },
+    {
       "id": "benchmarks-data",
       "categoryId": "benchmarks-tooling",
       "source": "docs-web/content/benchmarks-data.md",
