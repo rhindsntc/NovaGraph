@@ -97,7 +97,7 @@ Reads, writes and lifecycle operations forward cooperative cancellation. Complet
 
 ## Separate on-device sample and validation
 
-The NovaContext checkout's `Examples/OnDeviceMemory` is a separate SwiftUI app requiring Xcode 26+, XcodeGen and iOS 26+. Real generation additionally needs an Apple Intelligence eligible device with Apple Intelligence enabled and the on-device model ready. The app reports availability; its labelled `--model-free` mode provides a walkthrough without invoking a model.
+The NovaContext checkout's `Examples/OnDeviceMemory` is a separate SwiftUI app requiring Xcode 26+, XcodeGen and iOS 26+. Real generation additionally needs an Apple Intelligence eligible device with Apple Intelligence enabled and the on-device model ready. The app reports availability; its labelled `--model-free` mode provides a walkthrough without invoking a model. If the model becomes ready while the app remains open, use **Check model availability** to enable **Ask** without a scene transition; this check performs no generation or retry.
 
 From the NovaContext repository root:
 
