@@ -2894,6 +2894,12 @@
       "language": "performance"
     },
     {
+      "id": "devtools.ReleasePreflightContracts.test_fixture_commits_do_not_start_automatic_maintenance",
+      "suite": "ReleasePreflightContracts",
+      "owner": "T23",
+      "language": "devtools"
+    },
+    {
       "id": "devtools.ReleasePreflightContracts.test_missing_evidence_is_explicit_no_go",
       "suite": "ReleasePreflightContracts",
       "owner": "T23",
