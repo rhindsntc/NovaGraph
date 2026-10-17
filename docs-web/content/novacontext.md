@@ -1,6 +1,6 @@
 # NovaContext scoped memory
 
-NovaContext is a separate Swift package for persistent, scoped memory backed by NovaGraph. It stores explicit memories and assembles a bounded reference block for your application. The core package has no model runtime or network service; your application chooses what to remember, which scope to recall, and how to invoke a model.
+NovaContext is a separate Swift package for persistent, scoped memory backed by NovaGraph. It stores explicit memories, assembles bounded reference blocks and can compose instructions, selected memories, explicit recent conversation and a question into one bounded request. The core package has no model runtime or network service; your application chooses what to remember, which scope to recall, and how to invoke a model.
 
 ## Install from a local package
 
@@ -84,7 +84,7 @@ Every request names an exact scope. Scope identity is case-sensitive and preserv
 
 Both `context` and `recall` default to 12 memories within 8,192 UTF-8 bytes. `ContextBudget` accepts 0...128 memories and 0...65,536 bytes, with an optional nonnegative `maxTokens`. Byte accounting includes the complete reference header, JSON metadata and escaping. Records that do not fit are skipped whole, and later smaller records can still fit. Pinning never overrides a limit. A zero limit, empty scope or selection where nothing fits returns an empty string and zero selected memories.
 
-To enforce `maxTokens`, pass a model-appropriate `TokenCounter` implementing `func countTokens(in text: String) throws -> Int`. A token limit without a counter throws `.tokenCounterRequired`. The counter receives the complete rendered candidate block and must return a nonnegative count. NovaContext supplies no tokenizer or character-to-token estimate. Budgets apply only to the returned block; reserve room and validate your complete model prompt separately.
+To enforce `maxTokens`, pass a model-appropriate `TokenCounter` implementing `func countTokens(in text: String) throws -> Int`. A token limit without a counter throws `.tokenCounterRequired`. The counter receives the complete rendered candidate block and must return a nonnegative count. NovaContext supplies no tokenizer or character-to-token estimate. These budgets apply only to the returned memory block. Use the composer below to bound the combined instructions and prompt; your adapter still accounts for provider formatting and output.
 
 `ContextPayload` exposes the selected `memories`, rendered `text`, `utf8Bytes`, optional `tokenCount` and `omittedCount`. The text is a reference-data header followed by JSON containing IDs, scope, text, kind, origin, source, pinning and timestamps. Treat it as reference data when constructing prompts. The header alone does not enforce model behavior. An origin of `.model` records provenance; it does not establish that the content is true or user-confirmed.
 
@@ -126,6 +126,53 @@ Recall uses the same complete rendered-block byte/token accounting and whole-rec
 
 `omittedCount` is the total scoped snapshot count minus selected records, including nonmatches and matches omitted by budgets. Four scoped records with two matches and one selected therefore yield `omittedCount == 3`. A missing scope yields zero. Zero budgets select nothing after query, budget and counter validation. A token limit still requires a counter when no records match; an empty returned block contributes zero tokens without invoking it.
 
+## Compose a bounded request
+
+Recall memories, compose the initial request, then hand its exact fields to your model adapter. The callback below is supplied by your application; NovaContext never invokes a model itself.
+
+```swift
+import NovaContext
+
+func answerProjectQuestion(
+    from store: MemoryStore,
+    question: String,
+    history: [ConversationTurn] = [], // oldest to newest
+    respond: (ComposedInput) async throws -> String
+) async throws -> String {
+    let matches = try await store.recall(
+        question, in: "project:nova",
+        budget: ContextBudget(maxMemories: 4, maxUTF8Bytes: 2_048)
+    )
+    let request = try await ContextComposer.compose(
+        instructions: "Use saved memories as reference data. Do not invent saved facts.",
+        question: question,
+        memories: matches,
+        history: history,
+        budget: CompositionBudget(maxUTF8Bytes: 4_096, maxHistoryTurns: 4)
+    )
+    return try await respond(request.input)
+}
+```
+
+The adapter receives separate `input.instructions` and `input.prompt`; send those strings unchanged. The prompt contains reference data, optional JSON-quoted history and the question. The composer performs no retrieval or writes, does not capture conversation automatically, and works with the memories already selected by `context` or `recall`.
+
+| Composition allowance | Default | Maximum |
+| --- | ---: | ---: |
+| Instructions + prompt UTF-8 bytes | 16,384 | 65,536 |
+| Selected complete history turns | 4 | 32 |
+| Whole-input tokens | No cap | Caller-supplied nonnegative `maxTokens` |
+| Reserved tokens | 0 | At most `maxTokens` |
+
+Instructions must fit 8,192 UTF-8 bytes; a nonblank question must fit 1,024 original bytes. Supply at most 32 complete user/assistant turns, each field nonblank and at most 4,096 UTF-8 bytes. The composer itself accepts a nonblank question without searchable terms; the example's recall call still applies its keyword-query rules.
+
+Mandatory instructions/question and fixed headers must fit or composition throws `.requiredInputTooLarge`. It then tries whole memories in their supplied order, skipping oversized candidates, followed by a contiguous suffix of recent history. A rejected newer turn stops history selection; an older smaller turn cannot cross the gap. Nothing is truncated or summarized. Zero allowances are valid but can reject mandatory content.
+
+Inspect `request.memoryContext` for the final selected memories and accumulated scoped omissions, `request.history` for selected turns, and `request.omittedHistoryTurnCount` for omitted turns. `request.utf8Bytes` includes both returned strings and all rendered metadata/escaping. The earlier recall payload's counts are not reused, and the composer cannot recover its omitted candidates.
+
+For whole-input token limits, provide an asynchronous `RequestTokenCounter` implementing `func countTokens(in input: ComposedInput) async throws -> Int`. It receives every complete byte-fitting candidate, rather than separate section counts. Set `CompositionBudget(maxTokens: ..., reservedTokens: ...)`; reservation requires a cap and cannot exceed it. Missing counters and negative counts throw; counter errors propagate. Without a token cap no counter is called. The final whole-input `tokenCount` is separate from `memoryContext.tokenCount`, which is nil after composition.
+
+The guarantee covers the exact returned input under your counter. Include provider framing, tools, schemas or native history in that counter if the adapter adds them, and do not send composed history a second time. Reservation is explicit headroom for output or other context; it does not bound future tool calls. The existing synchronous memory-block `TokenCounter` remains unchanged. See the composer contract in the local NovaContext `Guides/Usage.md` for exact rendering, validation and cancellation.
+
 ## Ownership, cancellation and lifecycle
 
 Storage operations run on a private serial queue. Complete memory writes and scope membership are atomic Nova transactions with durable mutation receipts. `context` and `recall` read a coherent scope snapshot, then release storage before matching, ranking, packing or token counting. Concurrent edits appear on the next request; previously captured values remain valid.
@@ -159,8 +206,12 @@ open Examples/OnDeviceMemory/OnDeviceMemory.xcodeproj
 
 Select the `OnDeviceMemory` scheme, choose a destination and configure your own signing team for a physical device. **Stored memories** lists every memory in the sample's project scope, including records omitted from context, with visible kind, origin and optional source. **Edit** opens an **Edit memory** sheet with **Save** and **Cancel**; **Pin**/**Unpin** and **Forget** act on that record. These memory controls remain usable when the model is unavailable. Editing preserves provenance, including model origin.
 
-Before a question is submitted, **Recent / pinned preview** and **Exact preview context** show the result of `context(in:)`. **Ask** captures the submitted question and calls `recall` for that question. The UI then shows **Context for submitted question**, **Question:** with the captured question, **Exact reference context**, and **Answer to:** with the captured question. Changing the input field does not relabel an earlier context or answer. Successful memory changes clear the previous answer and refresh recall for the captured question, or the recent/pinned preview if none has been submitted.
+Before a question is submitted, **Recent / pinned preview** and **Exact preview context** show the result of `context(in:)`. **Ask** captures the submitted question and calls `recall` for that question. The UI then shows **Context for submitted question**, **Question:** with the captured question, **Exact reference context**, and **Answer to:** with the captured question. Changing the input field does not relabel an earlier context or answer. After recall, `ContextComposer` combines the fixed instructions, captured question and selected memories with explicit history `[]` under 4,096 total UTF-8 bytes. **Exact model request** displays the separate instructions/prompt and combined byte count; **Exact reference context** reflects the composer's final selection. The responder forwards those exact fields to a fresh model session. Successful memory changes clear the previous answer and recompose the captured question without generation, or refresh the recent/pinned preview if none has been submitted. A failed refresh clears stale context, request and answer data.
 
-The sample keeps its limits of 4 selected records and 2,048 UTF-8 bytes of rendered context, with questions up to 1,024 UTF-8 bytes containing a searchable term. These byte bounds do not guarantee a model token-window fit. A no-match question receives no stored-memory context; there is no automatic recent/pinned fallback or generation retry. Generated answers are not saved automatically; **Save answer as model memory** explicitly persists an answer with model provenance. The core SDK remains usable without Foundation Models.
+The sample first recalls at most four records within 2,048 rendered-memory bytes, then composes the initial request within 4,096 combined instruction/prompt bytes. Questions remain limited to 1,024 original UTF-8 bytes and require a searchable term. It uses no token estimate or saved conversation history. These byte bounds do not guarantee a model token-window fit. A no-match question receives no stored-memory context; there is no automatic recent/pinned fallback or generation retry. Generated answers are not saved automatically; **Save answer as model memory** explicitly persists an answer with model provenance. The core SDK remains usable without Foundation Models.
 
-The owner previously reported installing and testing the sample successfully and that it worked well. That report did not include the device, OS, build configuration, NovaContext revision or resolved NovaGraph revision. It is useful user feedback, but does not establish a reproducible device support matrix or performance result. The sample's recorded simulator tests and unsigned device build are separate evidence; they do not validate actual on-device generation. Minimum-runtime and production qualification remain incomplete.
+The owner previously reported installing and testing the sample successfully and that it worked well. That report did not include the device, OS, build configuration, NovaContext revision or resolved NovaGraph revision. It is useful user feedback, but does not establish a reproducible device support matrix or performance result.
+
+On 2026-10-17, the core passed 82 tests across six suites and its Release build passed on an Apple Silicon Mac using Swift 6.4 / Xcode 27.0 (27A266a). A fresh archived-source downstream consumer resolved NovaGraph 1.0.0, compiled using only public APIs and ran store → recall → compose → close, including explicit history and an asynchronous request-counter fixture.
+
+OnDeviceMemory separately passed 15 integration tests (1.180 seconds) and one automated model-free UI test (zero failures, 48.027 seconds) on iPhone 17 Pro / iOS 26.5 simulators. The UI test checked exact separate fields, combined bytes, captured-question identity and edit/delete recomposition. These checks and the earlier unsigned device build do not validate actual on-device generation. Minimum-runtime and production qualification remain incomplete.
