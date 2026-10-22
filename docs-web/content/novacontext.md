@@ -4,12 +4,12 @@ NovaContext is a separate Swift package for persistent, scoped memory backed by 
 
 ## Installation and v0.1.0 preparation
 
-NovaContext's first **v0.1.0** source release is being prepared under Apache 2.0. Its intended repository is `rhindsntc/NovaContext`; the repository and version tag are not published yet. Local installation is available now. Physical-device testing and real-model search-tool selection remain pending.
+NovaContext's first **v0.1.0** source release is being prepared under Apache 2.0. The [National-Technologies-Club/NovaContext repository](https://github.com/National-Technologies-Club/NovaContext) has been created; source publication and the version tag remain pending. Local installation is available now. Physical-device testing and real-model search-tool selection remain pending.
 
 After the `v0.1.0` tag is published, use this versioned SwiftPM dependency, or add the repository URL in Xcode and select version **0.1.0**:
 
 ```swift
-.package(url: "https://github.com/rhindsntc/NovaContext.git", exact: "0.1.0")
+.package(url: "https://github.com/National-Technologies-Club/NovaContext.git", exact: "0.1.0")
 ```
 
 Until then, add the NovaContext source directory as a **local Swift package** in Xcode. For sibling SwiftPM projects:
