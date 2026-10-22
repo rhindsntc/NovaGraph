@@ -2,17 +2,17 @@
 
 NovaContext is a separate Swift package for persistent, scoped memory backed by NovaGraph. It stores explicit memories, assembles bounded reference blocks and can compose instructions, selected memories, explicit recent conversation and a question into one bounded request. The core package has no model runtime or network service; your application chooses what to remember, which scope to recall, and how to invoke a model.
 
-## Installation and v0.1.0 preparation
+## Installation
 
-NovaContext's first **v0.1.0** source release is being prepared under Apache 2.0. The [National-Technologies-Club/NovaContext repository](https://github.com/National-Technologies-Club/NovaContext) has been created; source publication and the version tag remain pending. Local installation is available now. Physical-device testing and real-model search-tool selection remain pending.
+NovaContext **v0.1.0** is available under Apache 2.0 from [National-Technologies-Club/NovaContext](https://github.com/National-Technologies-Club/NovaContext). See the [v0.1.0 release notes](https://github.com/National-Technologies-Club/NovaContext/releases/tag/v0.1.0). Physical-device testing and real-model search-tool selection remain pending.
 
-After the `v0.1.0` tag is published, use this versioned SwiftPM dependency, or add the repository URL in Xcode and select version **0.1.0**:
+Use this versioned SwiftPM dependency, or add the repository URL in Xcode and select version **0.1.0**:
 
 ```swift
 .package(url: "https://github.com/National-Technologies-Club/NovaContext.git", exact: "0.1.0")
 ```
 
-Until then, add the NovaContext source directory as a **local Swift package** in Xcode. For sibling SwiftPM projects:
+For local development, add the NovaContext source directory as a **local Swift package** in Xcode. For sibling SwiftPM projects:
 
 ```swift
 .package(path: "../NovaContext")
@@ -26,7 +26,7 @@ Add its library product to your target dependencies:
 
 NovaContext uses Swift tools 6.0 and depends on the `GraphDBKit` product from NovaGraph, pinned to version 1.0.0. Its declared deployment floors are iOS 16 and macOS 13. The Foundation Models sample requires Xcode 26+ and iOS 26+. Deployment declarations are separate from tested runtime support; see NovaGraph's [compatibility notes](compatibility.md).
 
-The NovaContext checkout contains `README.md`, `CONTRIBUTING.md`, `RELEASE_NOTES.md`, `Guides/Usage.md`, `Guides/Compatibility.md`, `Guides/Releasing.md` and `Examples/OnDeviceMemory/README.md`. These describe the source candidate, development checks and publication steps. A disposable local-tag consumer can verify version/product mechanics before publication; hosted CI and installation from the actual GitHub tag remain later checks.
+The NovaContext checkout contains `README.md`, `CONTRIBUTING.md`, `RELEASE_NOTES.md`, `Guides/Usage.md`, `Guides/Compatibility.md`, `Guides/Releasing.md` and `Examples/OnDeviceMemory/README.md`. These cover installation, usage, development checks, compatibility and release maintenance.
 
 Release preparation on 2026-10-20 passed NovaContext's core Debug build, **82 tests across six suites** and optimized Release build with Swift 6.4 / Xcode 27.0 (27A266a). This source-release preparation does not qualify untested devices or actual model behavior.
 
