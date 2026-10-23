@@ -2,6 +2,7 @@
 """Exercise release preflight against real disposable Git trees and file evidence."""
 import hashlib
 import json
+import os
 from pathlib import Path
 import subprocess
 import tarfile
@@ -22,6 +23,8 @@ class ReleasePreflightContracts(unittest.TestCase):
         with tarfile.open(archive) as source: source.extractall(self.repo, filter='data')
         (self.repo / 'docs-web/node_modules').symlink_to(ROOT / 'docs-web/node_modules', target_is_directory=True)
         subprocess.run(['git','init','-q'],cwd=self.repo,check=True,capture_output=True)
+        # Disposable fixtures must have no detached writers when TemporaryDirectory cleans up.
+        subprocess.run(['git','config','--local','maintenance.auto','false'],cwd=self.repo,check=True,capture_output=True)
         (self.repo/'.git/info/exclude').write_text('docs-web/node_modules\n')
         for command in (['git','add','.'],
                         ['git','-c','user.name=Release Fixture','-c','user.email=fixture@example.invalid','commit','-qm','fixture']):
@@ -51,6 +54,23 @@ class ReleasePreflightContracts(unittest.TestCase):
         return run,json.loads(path.read_text())
     def gate(self, report, name):
         return next(g for g in report['gates'] if g['id']==name)
+    def test_fixture_commits_do_not_start_automatic_maintenance(self):
+        # Exercise real Git with ambient maintenance enabled. Fixture-local settings
+        # must keep commits from leaving a detached writer behind during cleanup.
+        config = self.base / 'ambient-git-config'
+        config.write_text('[maintenance]\n    auto = true\n')
+        trace = self.base / 'git-trace.jsonl'
+        env = dict(os.environ, GIT_CONFIG_GLOBAL=str(config), GIT_CONFIG_NOSYSTEM='1',
+                   GIT_TRACE2_EVENT=str(trace))
+        subprocess.run(['git','-c','user.name=Release Fixture','-c','user.email=fixture@example.invalid',
+                        'commit','--allow-empty','-qm','maintenance probe'],
+                       cwd=self.repo,env=env,check=True,capture_output=True)
+        events = [json.loads(line) for line in trace.read_text().splitlines()]
+        automatic = [event['argv'] for event in events if event.get('event') == 'child_start'
+                     and any(command in event.get('argv', []) for command in ('maintenance', 'gc'))
+                     and '--auto' in event.get('argv', [])]
+        self.assertEqual(automatic, [], 'Fixture commits must not launch automatic Git maintenance')
+
     def test_missing_evidence_is_explicit_no_go(self):
         run,report=self.run_preflight()
         self.assertEqual(run.returncode,1);self.assertEqual(report['decision'],'no-go')
